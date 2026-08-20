@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Ambucha · ambucha</title>
+<meta name="description" content="Order Ambucha hard kombucha — for venues, shops and events. Tell us what you need and we'll sort it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1EA; --cream-deep:#F3E4D8; --ink:#191311; --ink-soft:#61544D;
+    --line:rgba(25,19,17,.13);
+    --berry-a:#E5286E; --berry-b:#7C2050; --berry-g:#E0187A;
+    --fx-a:var(--berry-a); --fx-b:var(--berry-b); --fx-g:var(--berry-g);
+    --serif:"Fraunces", Georgia, serif; --sans:"Archivo", -apple-system, sans-serif; --maxw:1220px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+  ::selection{background:var(--fx-a);color:var(--cream)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border-radius:100px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);cursor:pointer;transition:opacity .25s ease,background .25s ease,color .25s ease}
+  .btn.solid{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .btn.solid:hover{opacity:.88}
+
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--cream) 86%,transparent);border-bottom:1px solid var(--line)}
+  .nav{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+  .nav-left{justify-self:start}
+  .nav-right{justify-self:end}
+  .nav .wordmark{justify-self:center}
+  .wordmark{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:440;letter-spacing:-.02em;color:var(--ink);text-decoration:none;line-height:1}
+  .nav-cta{padding:15px 32px;font-size:12px;letter-spacing:.16em}
+  @media(max-width:760px){.wordmark{font-size:26px}.nav-cta{padding:11px 18px;font-size:10px;letter-spacing:.1em}.nav{gap:10px;padding:13px 18px}}
+  .menu{position:relative}
+  .menu-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:100px;padding:11px 18px;cursor:pointer;transition:background .2s ease}
+  .menu-btn:hover{background:rgba(25,19,17,.05)}
+  .menu-btn:focus-visible{outline:2px solid var(--fx-a);outline-offset:2px}
+  .menu-ico{display:inline-flex;flex-direction:column;justify-content:center;gap:3.5px;width:15px}
+  .menu-ico span{height:1.5px;width:100%;background:var(--ink);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  .menu-btn[aria-expanded="true"] .menu-ico span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] .menu-ico span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] .menu-ico span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+  .menu-panel{position:absolute;top:calc(100% + 12px);right:0;min-width:236px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:1px;box-shadow:0 30px 60px -28px rgba(25,19,17,.38);z-index:80}
+  .menu-panel[hidden]{display:none}
+  .menu-panel a{padding:11px 14px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:background .18s ease}
+  .menu-panel a:hover{background:rgba(25,19,17,.05)}
+  .menu-panel a[aria-current="page"]{color:var(--fx-a)}
+  .menu-panel a.cta{background:var(--ink);color:var(--cream);justify-content:center;text-align:center;margin-bottom:6px}
+  .menu-panel a.cta:hover{background:var(--ink);opacity:.9}
+  @media(max-width:520px){.menu-btn>span:not(.menu-ico){display:none}.menu-btn{padding:11px 14px}}
+
+  main{flex:1}
+  .order{max-width:var(--maxw);margin:0 auto;padding:96px 28px 110px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  @media(max-width:860px){.order{grid-template-columns:1fr;gap:32px}}
+  .sec-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.46em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:340;font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-.03em}
+  h1 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .order-lead{margin:22px 0 0;max-width:44ch;font-size:16px;line-height:1.7;color:var(--ink-soft)}
+  .order-meta{display:flex;gap:22px;margin-top:26px;font-size:14px;flex-wrap:wrap}
+  .order-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+  .order-meta a:hover{border-color:var(--fx-a)}
+
+  .order-form{background:#FEF8F2;border:1px solid var(--line);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:15px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field label{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .field .opt{text-transform:none;letter-spacing:0;font-weight:400;opacity:.6}
+  .field input,.field textarea,.field select{font-family:var(--sans);font-size:15px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink);width:100%;resize:vertical}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--fx-a);outline-offset:1px;border-color:transparent}
+  .order-form .btn{margin-top:6px;align-self:flex-start}
+  .order-note{font-size:12px;color:var(--ink-soft);line-height:1.5}
+  .order-success{font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink);padding:8px 0}
+
+  footer{border-top:1px solid var(--line);padding:44px 28px;background:var(--cream-deep)}
+  .foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot .wordmark{font-size:30px}
+  .foot-legal{font-size:12px;color:var(--ink-soft);max-width:60ch}
+  .foot-legal .nix{font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Main">
+    <div class="nav-left">
+      <div class="menu">
+        <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-haspopup="true">
+          <span class="menu-ico" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Menu</span>
+        </button>
+        <div class="menu-panel" id="menu-panel" hidden>
+          <a href="index.html#flavors">Flavors</a>
+          <a href="index.html#story">How it's made</a>
+          <a href="index.html#horeca">For horeca</a>
+          <a href="index.html#tasting">Request a tasting</a>
+          <a href="index.html#pour">Where we pour</a>
+          <a href="ambucha-gallery.html">Gallery</a>
+          <a href="ambucha-about.html">About us</a>
+        </div>
+      </div>
+    </div>
+    <a class="wordmark" href="index.html#top">ambucha</a>
+    <div class="nav-right">
+      <a class="btn solid nav-cta" href="ambucha-order.html" aria-current="page">Get Ambucha</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="order">
+    <div>
+      <div class="sec-eyebrow">Get Ambucha</div>
+      <h1>Order <em>Ambucha.</em></h1>
+      <p class="order-lead">Running a bar, shop or event, or just want a case at home? Tell us what you're after and we'll get back with pricing and delivery. Our online shop is on its way, in the meantime we handle orders personally.</p>
+      <div class="order-meta">
+        <a href="mailto:info@ambucha.com">info@ambucha.com</a>
+        <a href="https://instagram.com/drinkambucha" target="_blank" rel="noopener">@drinkambucha</a>
+      </div>
+    </div>
+    <form class="order-form" id="order-form" novalidate>
+      <div class="field">
+        <label for="of-name">Your name</label>
+        <input id="of-name" name="name" type="text" required placeholder="Jane de Vries">
+      </div>
+      <div class="field">
+        <label for="of-company">Company / venue <span class="opt">(optional)</span></label>
+        <input id="of-company" name="company" type="text" placeholder="Café Zon, Amsterdam">
+      </div>
+      <div class="field">
+        <label for="of-email">Email</label>
+        <input id="of-email" name="email" type="email" required placeholder="you@email.com">
+      </div>
+      <div class="field">
+        <label for="of-type">Ordering as</label>
+        <select id="of-type" name="type">
+          <option>Venue / horeca</option>
+          <option>Shop / retailer</option>
+          <option>Event</option>
+          <option>At home</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="of-msg">What would you like? <span class="opt">(quantity, flavours, timing)</span></label>
+        <textarea id="of-msg" name="msg" rows="3" placeholder="e.g. 5 cases, mixed flavours, before the end of the month"></textarea>
+      </div>
+      <button type="submit" class="btn solid">Send order enquiry</button>
+      <p class="order-note">We'll reply to the email you provide, usually within two working days.</p>
+      <p class="order-success" id="order-success" hidden>Thanks! Your enquiry is on its way, we'll be in touch soon.</p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <a class="wordmark" href="index.html#top">ambucha</a>
+    <div class="foot-legal">
+      <span>© 2026 Ambucha B.V. · Amsterdam, NL (EU) · info@ambucha.com</span><br>
+      <span class="nix">NIX18 · Geen 18, geen alcohol · Drink responsibly</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* dropdown menu */
+(function(){
+  var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');
+  if(!btn||!panel) return;
+  function close(){btn.setAttribute('aria-expanded','false');panel.hidden=true;}
+  function open(){btn.setAttribute('aria-expanded','true');panel.hidden=false;}
+  btn.addEventListener('click',function(e){e.stopPropagation();panel.hidden?open():close();});
+  document.addEventListener('click',function(e){if(!panel.hidden && !btn.contains(e.target) && !panel.contains(e.target)) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+  panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+})();
+
+/* order enquiry form → emails info@ambucha.com via Web3Forms */
+(function(){
+  var KEY="1f903fb1-ef75-4fac-ba1e-ff871daa3e9f";
+  var form=document.getElementById('order-form');
+  if(!form) return;
+  var submitBtn=form.querySelector('button[type="submit"]');
+  function showThanks(){
+    form.querySelectorAll('.field, button[type="submit"], .order-note').forEach(function(el){el.style.display='none';});
+    var s=document.getElementById('order-success'); if(s) s.hidden=false;
+  }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(typeof form.reportValidity==='function' && !form.reportValidity()) return;
+    var v=function(n){var el=form.querySelector('[name="'+n+'"]');return el?(el.value||'').trim():'';};
+    var name=v('name'), company=v('company'), email=v('email'), type=v('type'), msg=v('msg');
+    var subject='Order enquiry: '+(company||name||'Ambucha');
+    var message='Name: '+name+'\nCompany/venue: '+company+'\nEmail: '+email+'\nOrdering as: '+type+'\n\n'+msg;
+    if(submitBtn) submitBtn.disabled=true;
+    try{
+      var r=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({access_key:KEY, subject:subject, from_name:'Ambucha — Order', name:name, company:company, email:email, replyto:email, type:type, message:message})
+      });
+      var data=await r.json().catch(function(){return {};});
+      if(r.ok && data.success){ showThanks(); return; }
+    }catch(err){}
+    if(submitBtn) submitBtn.disabled=false;
+    window.location.href='mailto:info@ambucha.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);
+    showThanks();
+  });
+})();
+</script>
+</body>
+</html>
