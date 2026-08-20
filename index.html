@@ -580,7 +580,7 @@
       </div>
       <div class="field">
         <label for="tf-venue" data-i18n="tasting.venue">Venue / company</label>
-        <input id="tf-venue" name="venue" type="text" required data-i18n-ph="tasting.venuePh" placeholder="Café Zon, Amsterdam">
+        <input id="tf-venue" name="venue" type="text" data-i18n-ph="tasting.venuePh" placeholder="Café Zon, Amsterdam">
       </div>
       <div class="field">
         <label for="tf-email" data-i18n="tasting.email">Email</label>
@@ -605,7 +605,6 @@
         <div class="sec-eyebrow" data-i18n="pour.eyebrow">Where we pour</div>
         <h2 data-i18n="pour.title">Find Ambucha<br><em>near you.</em></h2>
       </div>
-      <p data-i18n="pour.intro">We're rolling out across the Netherlands, one great bar, bottle shop and restaurant at a time. Starting in Amsterdam, coming to your city next.</p>
     </div>
     <div class="pour-grid reveal">
       <div class="pour-map">
@@ -709,8 +708,13 @@ document.getElementById('gate-yes').addEventListener('click',()=>{
 });
 
 /* ================= MARQUEE ================= */
-document.getElementById('mtrack').innerHTML=
-  '<span>Gluten free</span><span class="dot">●</span><span>Vegan</span><span class="dot">●</span>'.repeat(14);
+function setMarquee(l){
+  var t = l==='nl' ? 'Glutenvrij' : 'Gluten free';
+  document.getElementById('mtrack').innerHTML =
+    ('<span>'+t+'</span><span class="dot">●</span><span>Vegan</span><span class="dot">●</span>').repeat(14);
+}
+window.setMarquee = setMarquee;
+setMarquee('en');
 
 /* ================= FLAVOR DATA ================= */
 const FLAVORS=[
@@ -1238,25 +1242,25 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script>
 (function(){
   const NL = {
-    "nav.flavors":"Smaken","nav.made":"Hoe het gemaakt wordt","nav.about":"Over ons","nav.pour":"Waar we schenken","nav.gallery":"Galerie","nav.horeca":"Voor horeca","nav.tasting":"Vraag een proeverij aan","nav.menu":"Menu","nav.cta":"Ambucha halen",
+    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.about":"Over ons","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.menu":"Menu","nav.cta":"Bestel Ambucha",
     "gate.text":"Ambucha bevat 4,5% alcohol. Bevestig dat je 18 jaar of ouder bent om verder te gaan.","gate.yes":"Ik ben 18 of ouder","gate.no":"Ik ben jonger dan 18","gate.note":"Geen 18, geen alcohol · Drink met mate",
     "hero.eyebrow":"Groene thee gefermenteerd · 4,5% alc","hero.title":"Hard kombucha,<br>gewoon <em id='hero-word'>heerlijk</em>","hero.sub":"Biologische sencha groene thee, een levende cultuur en echt fruit, gefermenteerd tot een lichte, sprankelende drank van 4,5% alc.","hero.hint":"Sleep om te draaien",
     "spec.alc":"Alc / vol","spec.can":"Slank blikje","spec.kcal":"kcal per blik","spec.preservatives":"Conserveringsmiddelen",
-    "flavors.eyebrow":"De line-up","flavors.title":"Drie smaken.<br><em>Nul concessies.</em>","flavors.intro":"Elk blikje begint met dezelfde biologische kombucha van groene thee en krijgt daarna zijn eigen karakter van echt vruchtensap en botanicals. Van nature glutenvrij en volledig vegan.",
-    "card.berry":"Wilde rode bessen, geblend tot een frisse, zoete slok. Het blikje dat je geeft aan iemand die zegt geen kombucha te lusten, en dan zie je ze het opdrinken.",
-    "card.mango":"Sappige mango met een vleugje kurkuma. Zonnig, zacht en net even aards. Eentje met wat meer body en een warme gouden diepte.",
-    "card.pine":"Frisse ananas opgetild door koele munt. Fris, groen en stralend, gemaakt om te verfrissen.",
-    "fact.alc":"Alc / vol","fact.per":"Per blik","fact.sugar":"Suiker / blik",
-    "what.eyebrow":"Eerst even dit","what.title":"Wat is <em>kombucha?</em>","what.lead":"Kombucha is een van nature sprankelende drank die ontstaat door gezoete groene thee te fermenteren met een levende cultuur die een scoby heet. De cultuur eet langzaam de suiker op en verandert gewone thee in iets fris, zacht-zuur en levend, van nature bijna alcoholvrij.","what.body":"Hard kombucha is gewoon kombucha met alcohol. Dezelfde gefermenteerde thee, opgebouwd tot een heldere, droge 4,5%. Dezelfde basis als de kombucha die je kent, maar nu met een beetje buzz.","about.eyebrow":"Over ons","about.title":"Een volwassen drankje<br>met <em>niets te verbergen.</em>","about.lead":"Ambucha begon in Amsterdam met één idee: een drankje dat licht aanvoelt, levend smaakt en je nooit vraagt om in te leveren.","about.body":"We brouwen echte kombucha van biologische sencha groene thee en een levende cultuur, en fermenteren die tot een heldere, droge 4,5%. Alles is vegan, glutenvrij en gemaakt met echt fruit, zonder kunstmatige toevoegingen. We zijn een klein team dat geeft om vakmanschap, en om de mensen, plekken en kleine kunstenaars die ons schenken en inspireren.","gallery.eyebrow":"Galerie","gallery.title":"We steunen<br><em>kleine kunstenaars.</em>","gallery.intro":"Elk Ambucha-label is een canvas. We werken samen met kleine, onafhankelijke kunstenaars en geven hun werk een plek, op onze blikjes en hier. Een blik op het werk waar we van houden.","gallery.piece":"Zonder titel","gallery.slot":"Kunstenaar volgt binnenkort","gallery.cta":"Ben je een kleine kunstenaar? <a href='mailto:info@ambucha.com?subject=Kunstenaar%20%E2%80%94%20Ambucha%20galerie'>Neem contact op</a> en we tonen je werk.",
-    "story.eyebrow":"Hoe het gemaakt wordt","story.title":"Echte gefermenteerde kombucha.<br>Gemaakt om mee te bewegen met de <em>dag</em>.","story.lead":"We beginnen waar elke echte kombucha begint: <em>biologische sencha groene thee</em>, ruwe rietsuiker en een levende cultuur. Fermentatie geeft de basis zijn diepte en theekarakter. Daarna echt vruchtensap, natuurlijke aroma's, afgemaakt op een droge 4,5%. Licht, fris en het lekkerst koud.",
-    "story.s1t":"Zetten","story.s1b":"Biologische sencha groene thee wordt gezet en gezoet met ruwe rietsuiker, voeding voor de cultuur, niet voor het blik.",
+    "flavors.eyebrow":"De line-up","flavors.title":"Drie smaken.<br><em>Nul concessies.</em>","flavors.intro":"Elk blikje begint met dezelfde basis, een biologische kombucha van groene thee en krijgt daarna zijn eigen karakter door echt vruchtensap en botanicals. Van nature glutenvrij en vegan.",
+    "card.berry":"Wilde rode bessen, geblend tot een frisse, zoete dronk. Het blikje dat je geeft aan iemand die zegt niet van kombucha te houden, en je het ze vervolgens in één keer leeg ziet drinken.",
+    "card.mango":"Sappige mango met een vleugje kurkuma. Zonnig, zacht met een aardse tint. Onze smaak met meer body en een warme, ronde afdronk.",
+    "card.pine":"Frisse ananas vermixt met koele munt. Fris, tropisch en licht zoet, gemaakt om dorst te lessen.",
+    "fact.alc":"ALC","fact.per":"Per blik","fact.sugar":"SUIKER",
+    "what.eyebrow":"","what.title":"Wat is <em>kombucha?</em>","what.lead":"Kombucha is een van nature sprankelende drank die ontstaat door gezoete groene thee te fermenteren met een levende cultuur die een scoby heet. De kombuchacultuur eet de suiker langzaam op en verandert de thee in een fris, zachtzuur drankje met van nature een laag alcoholpercentage van rond de 1 à 1,5%. Kombucha staat ook bekend om de natuurlijke levende culturen en B-vitamines die tijdens de fermentatie ontstaan.","what.body":"Hard kombucha heeft dezelfde basis, gefermenteerde groene thee, met als laatste stap extra toegevoegde alcohol voor die extra kick.","about.eyebrow":"Over ons","about.title":"Een volwassen drankje<br>met <em>niets te verbergen.</em>","about.lead":"Ambucha begon in Amsterdam met één idee: een drankje dat licht aanvoelt, levend smaakt en je nooit vraagt om in te leveren.","about.body":"We brouwen echte kombucha van biologische sencha groene thee en een levende cultuur, en fermenteren die tot een heldere, droge 4,5%. Alles is vegan, glutenvrij en gemaakt met echt fruit, zonder kunstmatige toevoegingen. We zijn een klein team dat geeft om vakmanschap, en om de mensen, plekken en kleine kunstenaars die ons schenken en inspireren.","gallery.eyebrow":"Galerie","gallery.title":"We steunen<br><em>kleine kunstenaars.</em>","gallery.intro":"Elk Ambucha-label is een canvas. We werken samen met kleine, onafhankelijke kunstenaars en geven hun werk een plek, op onze blikjes en hier. Een blik op het werk waar we van houden.","gallery.piece":"Zonder titel","gallery.slot":"Kunstenaar volgt binnenkort","gallery.cta":"Ben je een kleine kunstenaar? <a href='mailto:info@ambucha.com?subject=Kunstenaar%20%E2%80%94%20Ambucha%20galerie'>Neem contact op</a> en we tonen je werk.",
+    "story.eyebrow":"Ambucha","story.title":"Echte gefermenteerde kombucha.<br>Gemaakt om mee te bewegen met de <em>dag</em>.","story.lead":"We beginnen waar elke echte kombucha begint: <em>biologische sencha groene thee</em>, ruwe rietsuiker en een levende kombuchacultuur. Het fermentatieproces zorgt voor een diepe, gelaagde smaak. Daarna voegen we verschillende vruchtensappen en natuurlijke aroma's toe, waarna we het alcoholpercentage verhogen naar 4,5%. Onze Ambucha's zijn hierdoor licht en fris. Het lekkerst geserveerd koud.",
+    "story.s1t":"Brouwen","story.s1b":"Biologische sencha groene thee wordt gebrouwen en gezoet met ruwe rietsuiker als voeding voor de cultuur.",
     "story.s2t":"Fermenteren","story.s2b":"In de loop van de tijd verandert de levende cultuur de thee in kombucha door suikers om te zetten in smaak en diepte.",
-    "story.s3t":"Blenden","story.s3b":"Echt vruchtensap met natuurlijke aroma's en botanicals, afgemaakt op een droge 4,5% met een zachte bruis.",
-    "story.s4t":"Blikken","story.s4b":"Licht sprankelend, geblikt op 250 ml in Portugal. Het lekkerst koud geserveerd.",
-    "horeca.eyebrow":"Voor bars, restaurants & cafés","horeca.title":"Zet iets <em class='accent'>nieuws</em> op de kaart.","horeca.intro":"De drinkcultuur verschuift naar bewustere, lichtere keuzes, zonder in te leveren op smaak en karakter. Ambucha is de volgende stap in die verschuiving. Een openbaring voor de gast die met intentie bestelt.","horeca.cta":"Ambucha halen",
-    "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om premium te ogen in de hand en op tafel","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Puur uit het blik of ingeschonken in een glas. Past ook bij zaken met glaswerk","horeca.b7":"We steunen kleine kunstenaars, <a href='ambucha-gallery.html'>bekijk onze galerie</a>",
-    "pour.eyebrow":"Waar we schenken","pour.title":"Vind Ambucha<br><em>bij jou in de buurt.</em>","pour.intro":"We rollen uit door heel Nederland, bar voor bar, slijterij voor slijterij, restaurant voor restaurant. We beginnen in Amsterdam en komen naar jouw stad.","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"Ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Ambucha schenken",
-    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij. Meestal reageren we binnen twee werkdagen.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt! Je aanvraag is onderweg, we nemen snel contact op.",
+    "story.s3t":"Blenden","story.s3b":"Echt vruchtensap met natuurlijke aroma's en botanicals worden toegevoegd, waarna we als laatste stap onze Ambucha's afmaken met 4,5% alc. en een lichte bruis.",
+    "story.s4t":"Serveren","story.s4b":"Licht sprankelend, in blikjes van 250 ml. Het lekkerst koud geserveerd.",
+    "horeca.eyebrow":"Voor horeca & events","horeca.title":"Zet iets <em class='accent'>nieuws</em> op de kaart.","horeca.intro":"De drinkcultuur verschuift naar bewustere, lichtere keuzes, zonder in te leveren op smaak en karakter. Ambucha is de volgende stap in die verschuiving. Een openbaring voor de gast die bestelt met intentie.","horeca.cta":"Ambucha bestellen",
+    "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om er mooi uit te zien, zowel in je hand als op tafel.","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Gedronken uit blik of uitgeschonken in een glas.","horeca.b7":"Een deel van de opbrengsten investeren we in de creatieve & culturele sector, <a href='ambucha-gallery.html'>bekijk onze galerie</a>.",
+    "pour.eyebrow":"","pour.title":"Vind Ambucha<br><em>bij jou in de buurt.</em>","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"Ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Bestellen",
+    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
     "foot.explore":"Ontdek","foot.contact":"Contact","foot.facts":"Feiten","foot.gv":"Glutenvrij · Vegan","foot.pop":"Product uit Portugal"
   };
   const WORDS = { en:["deliciously","boldly","brightly"], nl:["heerlijk","gedurfd","helder"] };
@@ -1270,6 +1274,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   function apply(l){
     lang = l;
     document.documentElement.lang = l;
+    if(typeof window.setMarquee==='function') window.setMarquee(l);
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const k = el.getAttribute('data-i18n');
       if(l==='nl' && NL[k]!==undefined){
