@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About us · ambucha</title>
-<meta name="description" content="About Ambucha — hard kombucha, brewed in Amsterdam.">
+<meta name="description" content="Meet Avangeline and Sterre, the two friends behind Ambucha — hard kombucha brewed in Amsterdam.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,13 +51,27 @@
   .menu-panel a.cta:hover{background:var(--ink);opacity:.9}
   @media(max-width:520px){.menu-btn>span:not(.menu-ico){display:none}.menu-btn{padding:11px 14px}}
 
-  main{flex:1;display:flex;align-items:center}
-  .page-hero{padding:120px 28px 110px;text-align:center;max-width:var(--maxw);margin:0 auto;width:100%}
+  main{flex:1}
+  .page-hero{padding:110px 28px 54px;text-align:center;max-width:var(--maxw);margin:0 auto;width:100%}
   .sec-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.46em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px}
-  h1{font-family:var(--serif);font-weight:340;font-size:clamp(46px,7.4vw,96px);line-height:1;letter-spacing:-.03em}
+  h1{font-family:var(--serif);font-weight:340;font-size:clamp(46px,7.4vw,88px);line-height:1;letter-spacing:-.03em}
   h1 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent}
   .page-lead{margin:26px auto 0;max-width:46ch;font-size:16.5px;line-height:1.7;color:var(--ink-soft)}
-  .page-cta{margin-top:38px}
+
+  /* ---- story ---- */
+  .about-story{max-width:680px;margin:0 auto;padding:0 28px 20px}
+  .about-story p{font-size:17px;line-height:1.85;color:var(--ink);margin-bottom:26px}
+  .about-story p:last-child{margin-bottom:0}
+  .about-pull{font-family:var(--serif);font-style:italic;font-weight:420;font-size:clamp(28px,4.4vw,42px)!important;line-height:1.2;text-align:center;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent;margin:46px 0!important}
+
+  /* ---- facts strip ---- */
+  .about-facts{max-width:var(--maxw);margin:64px auto 0;padding:44px 28px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line)}
+  .about-facts .fact{text-align:center}
+  .about-facts .fact b{display:block;font-family:var(--serif);font-weight:420;font-size:clamp(20px,2.4vw,28px);margin-bottom:8px}
+  .about-facts .fact span{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  @media(max-width:700px){.about-facts{grid-template-columns:repeat(2,1fr);row-gap:32px}}
+
+  .about-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:48px 28px 110px}
 
   footer{border-top:1px solid var(--line);padding:44px 28px;background:var(--cream-deep)}
   .foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
@@ -96,12 +110,29 @@
 <main>
   <section class="page-hero">
     <div class="sec-eyebrow">About us</div>
-    <h1>Coming <em>soon.</em></h1>
-    <p class="page-lead">Our story is still brewing. Check back shortly, or say hello in the meantime.</p>
-    <div class="page-cta">
-      <a class="btn ghost" href="index.html#top">Back to home</a>
-    </div>
+    <h1>We're Avangeline<br>and <em>Sterre.</em></h1>
+    <p class="page-lead">The two friends behind Ambucha.</p>
   </section>
+
+  <section class="about-story">
+    <p>We met at university in Amsterdam. Avangeline grew up in San Diego, Sterre in Maastricht, so comparing the two has been a running feature of the friendship ever since. Cities, food, how people spend a Friday. Usually over a drink somewhere.</p>
+    <p>It came up on holiday, sitting on a beach, talking about what we like to drink. Avangeline said the thing she missed most from home was hard kombucha. Sterre had never had one, but knew it would be perfect in Amsterdam.</p>
+    <p class="about-pull">So we made it.</p>
+    <p>Ambucha is a 4.5% hard kombucha that moves with the day, from bright afternoons on a terrace to late nights out. Naturally fermented. Real fruit. Three flavours: Golden Mango, Fresh Berry, Pineapple Glow. Women-owned, founded by the two of us.</p>
+    <p>We're starting between Amsterdam and Utrecht, in the bars we already spend our time in. This city has always been quick with a new thing, and this one only takes one round to make sense.</p>
+  </section>
+
+  <div class="about-facts">
+    <div class="fact"><b>Amsterdam</b><span>Where we met</span></div>
+    <div class="fact"><b>2</b><span>Women-owned</span></div>
+    <div class="fact"><b>3</b><span>Flavours</span></div>
+    <div class="fact"><b>AMS · UTR</b><span>Where we're starting</span></div>
+  </div>
+
+  <div class="about-cta">
+    <a class="btn solid" href="index.html#flavors">Meet the flavors</a>
+    <a class="btn ghost" href="ambucha-order.html">Get Ambucha</a>
+  </div>
 </main>
 
 <footer>
