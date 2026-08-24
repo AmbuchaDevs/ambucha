@@ -1036,6 +1036,7 @@ function makeEnvMap(renderer){
   x.fillRect(86,26,8,150);x.fillRect(300,34,10,132);x.fillRect(448,38,6,120);
   x.filter='none';
   const tex=new THREE.CanvasTexture(c);
+  tex.encoding=THREE.sRGBEncoding;
   tex.mapping=THREE.EquirectangularReflectionMapping;
   const pmrem=new THREE.PMREMGenerator(renderer);
   const env=pmrem.fromEquirectangular(tex).texture;
