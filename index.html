@@ -993,7 +993,7 @@ function makeCan(f,envMap){
   });
   // coated print on aluminium — clearcoat gives the label a subtle sheen
   const labelMat=new THREE.MeshPhysicalMaterial({
-    map:loadLabelTexture(f),color:0xefe4d6,metalness:0.04,roughness:0.62,
+    map:loadLabelTexture(f),color:0xffffff,metalness:0.04,roughness:0.62,
     clearcoat:0.28,clearcoatRoughness:0.42,envMap,envMapIntensity:0.24
   });
   const lidMat=new THREE.MeshStandardMaterial({
