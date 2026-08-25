@@ -138,7 +138,7 @@
     position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
     width:min(58vw,560px);aspect-ratio:1;border-radius:50%;
     background:radial-gradient(circle,var(--fx-g) 0%,transparent 66%);
-    filter:blur(70px);opacity:.34;transition:background .6s ease;pointer-events:none;
+    filter:blur(70px);opacity:.14;transition:background .6s ease;pointer-events:none;
   }
   .stage-hint{
     position:absolute;top:18px;right:22px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;
@@ -178,6 +178,7 @@
   .sec-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.46em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
   h2{font-family:var(--serif);font-weight:350;font-size:clamp(36px,4.8vw,60px);letter-spacing:-.025em;line-height:1.04}
   h2 em{font-style:italic;font-weight:420}
+  em.upright{font-style:normal}
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:64px;flex-wrap:wrap}
   .sec-head p{max-width:38ch;color:var(--ink-soft);font-size:15.5px;line-height:1.7}
 
@@ -224,7 +225,7 @@
   .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:56px}
   @media(max-width:920px){.story-grid{grid-template-columns:1fr;gap:40px}}
   .story p.big{font-family:var(--serif);font-weight:320;font-size:clamp(22px,2.6vw,30px);line-height:1.44;letter-spacing:-.012em}
-  .story p.big em{font-style:italic;color:var(--fx-g);transition:color .5s ease}
+  .story p.big em{font-style:normal;color:var(--fx-g);transition:color .5s ease}
   .step{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid rgba(251,241,234,.14)}
   .step:first-child{padding-top:0}
   .step:last-child{border-bottom:none}
@@ -249,6 +250,8 @@
   .foot-tag{font-size:10px;letter-spacing:.4em;text-transform:uppercase;font-weight:600;margin-top:8px;color:var(--ink-soft)}
   .foot-col h4{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:16px}
   .foot-col a{display:block;color:var(--ink-soft);text-decoration:none;font-size:14px;padding:4px 0}
+  .foot-cta{font-family:var(--serif)!important;font-size:18px!important;font-weight:460!important;color:var(--ink)!important;letter-spacing:-.01em}
+  .foot-cta:hover{color:var(--fx-a)!important}
   .foot-col a:hover{color:var(--ink)}
   .foot-col span{display:block;color:var(--ink-soft);font-size:14px;padding:4px 0}
   .foot-legal{
@@ -507,7 +510,7 @@
   <div class="wrap explainer-grid">
     <div class="reveal">
       <div class="sec-eyebrow" data-i18n="what.eyebrow">First things first</div>
-      <h2 data-i18n="what.title">So, what is <em>kombucha?</em></h2>
+      <h2 data-i18n="what.title">So, what is <em class="upright">kombucha?</em></h2>
     </div>
     <div class="reveal">
       <p class="explainer-lead" data-i18n="what.lead">Kombucha is a naturally sparkling drink made by fermenting sweetened green tea with a living culture called a scoby. The culture slowly eats the sugar and turns plain tea into something bright, tangy and alive, naturally almost alcohol free.</p>
@@ -521,7 +524,7 @@
   <div class="wrap">
     <div class="reveal">
       <div class="sec-eyebrow" data-i18n="story.eyebrow">How it's made</div>
-      <h2 data-i18n="story.title">Real fermented kombucha.<br>Made to move with the <em>day</em>.</h2>
+      <h2 data-i18n="story.title">Real fermented kombucha.<br>Made to move with the <em class="upright">day</em>.</h2>
     </div>
     <div class="story-grid">
       <p class="big reveal" data-i18n="story.lead">We start where every real kombucha starts: <em>organic sencha green tea</em>, raw cane sugar, and a living culture. Fermentation gives the base its depth and tea character. Then real fruit juice, natural aromas, finished at a dry 4.5%. Light, bright and best enjoyed cold.</p>
@@ -572,7 +575,7 @@
   <div class="wrap tasting-grid">
     <div class="reveal">
       <div class="sec-eyebrow" data-i18n="tasting.eyebrow">Request a tasting</div>
-      <h2 data-i18n="tasting.title">Taste it with<br>your <em>team.</em></h2>
+      <h2 data-i18n="tasting.title">Taste it with<br>your <em class="upright">team.</em></h2>
       <p class="tasting-intro" data-i18n="tasting.intro">Sign your venue up and we'll come by with the cans for a tasting. We usually get back to you within two working days.</p>
       <div class="tasting-meta">
         <a href="mailto:info@ambucha.com">info@ambucha.com</a>
@@ -609,7 +612,7 @@
     <div class="sec-head reveal">
       <div>
         <div class="sec-eyebrow" data-i18n="pour.eyebrow">Where we pour</div>
-        <h2 data-i18n="pour.title">Find Ambucha<br><em>near you.</em></h2>
+        <h2 data-i18n="pour.title">Find Ambucha<br><em class="upright">near you.</em></h2>
       </div>
     </div>
     <div class="pour-grid reveal">
@@ -676,7 +679,7 @@
       </div>
       <div class="foot-col">
         <h4 data-i18n="foot.explore">Explore</h4>
-        <a href="ambucha-order.html" data-i18n="nav.cta">Get Ambucha</a>
+        <a class="foot-cta" href="ambucha-order.html" data-i18n="nav.cta">Get Ambucha</a>
         <a href="#flavors" data-i18n="nav.flavors">Flavors</a>
         <a href="#story" data-i18n="nav.made">How it's made</a>
         <a href="#horeca" data-i18n="nav.horeca">For horeca</a>
@@ -1299,16 +1302,16 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     "card.mango":"Sappige mango met een vleugje kurkuma. Zonnig, zacht met een aardse tint. Onze smaak met meer body en een warme, ronde afdronk.",
     "card.pine":"Frisse ananas vermixt met koele munt. Fris, tropisch en licht zoet, gemaakt om dorst te lessen.",
     "fact.alc":"ALC","fact.per":"Per blik","fact.sugar":"SUIKER",
-    "what.eyebrow":"","what.title":"Wat is <em>kombucha?</em>","what.lead":"Kombucha is een van nature sprankelende drank die ontstaat door gezoete groene thee te fermenteren met een levende cultuur die een scoby heet. De kombuchacultuur eet de suiker langzaam op en verandert de thee in een fris, zachtzuur drankje met van nature een laag alcoholpercentage van rond de 1 à 1,5%. Kombucha staat ook bekend om de natuurlijke levende culturen en B-vitamines die tijdens de fermentatie ontstaan.","what.body":"Hard kombucha heeft dezelfde basis, gefermenteerde groene thee, met als laatste stap extra toegevoegde alcohol voor die extra kick.","about.eyebrow":"Over ons","about.title":"Een volwassen drankje<br>met <em>niets te verbergen.</em>","about.lead":"Ambucha begon in Amsterdam met één idee: een drankje dat licht aanvoelt, levend smaakt en je nooit vraagt om in te leveren.","about.body":"We brouwen echte kombucha van biologische sencha groene thee en een levende cultuur, en fermenteren die tot een heldere, droge 4,5%. Alles is vegan, glutenvrij en gemaakt met echt fruit, zonder kunstmatige toevoegingen. We zijn een klein team dat geeft om vakmanschap, en om de mensen, plekken en kleine kunstenaars die ons schenken en inspireren.","gallery.eyebrow":"Galerie","gallery.title":"We steunen<br><em>kleine kunstenaars.</em>","gallery.intro":"Elk Ambucha-label is een canvas. We werken samen met kleine, onafhankelijke kunstenaars en geven hun werk een plek, op onze blikjes en hier. Een blik op het werk waar we van houden.","gallery.piece":"Zonder titel","gallery.slot":"Kunstenaar volgt binnenkort","gallery.cta":"Ben je een kleine kunstenaar? <a href='mailto:info@ambucha.com?subject=Kunstenaar%20%E2%80%94%20Ambucha%20galerie'>Neem contact op</a> en we tonen je werk.",
-    "story.eyebrow":"Ambucha","story.title":"Echte gefermenteerde kombucha.<br>Gemaakt om mee te bewegen met de <em>dag</em>.","story.lead":"We beginnen waar elke echte kombucha begint: <em>biologische sencha groene thee</em>, ruwe rietsuiker en een levende kombuchacultuur. Het fermentatieproces zorgt voor een diepe, gelaagde smaak. Daarna voegen we verschillende vruchtensappen en natuurlijke aroma's toe, waarna we het alcoholpercentage verhogen naar 4,5%. Onze Ambucha's zijn hierdoor licht en fris. Het lekkerst geserveerd koud.",
+    "what.eyebrow":"","what.title":"Wat is <em class='upright'>kombucha?</em>","what.lead":"Kombucha is een van nature sprankelende drank die ontstaat door gezoete groene thee te fermenteren met een levende cultuur die een scoby heet. De kombuchacultuur eet de suiker langzaam op en verandert de thee in een fris, zachtzuur drankje met van nature een laag alcoholpercentage van rond de 1 à 1,5%. Kombucha staat ook bekend om de natuurlijke levende culturen en B-vitamines die tijdens de fermentatie ontstaan.","what.body":"Hard kombucha heeft dezelfde basis, gefermenteerde groene thee, met als laatste stap extra toegevoegde alcohol voor die extra kick.","about.eyebrow":"Over ons","about.title":"Een volwassen drankje<br>met <em>niets te verbergen.</em>","about.lead":"Ambucha begon in Amsterdam met één idee: een drankje dat licht aanvoelt, levend smaakt en je nooit vraagt om in te leveren.","about.body":"We brouwen echte kombucha van biologische sencha groene thee en een levende cultuur, en fermenteren die tot een heldere, droge 4,5%. Alles is vegan, glutenvrij en gemaakt met echt fruit, zonder kunstmatige toevoegingen. We zijn een klein team dat geeft om vakmanschap, en om de mensen, plekken en kleine kunstenaars die ons schenken en inspireren.","gallery.eyebrow":"Galerie","gallery.title":"We steunen<br><em>kleine kunstenaars.</em>","gallery.intro":"Elk Ambucha-label is een canvas. We werken samen met kleine, onafhankelijke kunstenaars en geven hun werk een plek, op onze blikjes en hier. Een blik op het werk waar we van houden.","gallery.piece":"Zonder titel","gallery.slot":"Kunstenaar volgt binnenkort","gallery.cta":"Ben je een kleine kunstenaar? <a href='mailto:info@ambucha.com?subject=Kunstenaar%20%E2%80%94%20Ambucha%20galerie'>Neem contact op</a> en we tonen je werk.",
+    "story.eyebrow":"Ambucha","story.title":"Echte gefermenteerde kombucha.<br>Gemaakt om mee te bewegen met de <em class='upright'>dag</em>.","story.lead":"We beginnen waar elke echte kombucha begint: <em>biologische sencha groene thee</em>, ruwe rietsuiker en een levende kombuchacultuur. Het fermentatieproces zorgt voor een diepe, gelaagde smaak. Daarna voegen we verschillende vruchtensappen en natuurlijke aroma's toe, waarna we het alcoholpercentage verhogen naar 4,5%. Onze Ambucha's zijn hierdoor licht en fris. Het lekkerst geserveerd koud.",
     "story.s1t":"Brouwen","story.s1b":"Biologische sencha groene thee wordt gebrouwen en gezoet met ruwe rietsuiker als voeding voor de cultuur.",
     "story.s2t":"Fermenteren","story.s2b":"In de loop van de tijd verandert de levende cultuur de thee in kombucha door suikers om te zetten in smaak en diepte.",
     "story.s3t":"Blenden","story.s3b":"Echt vruchtensap met natuurlijke aroma's en botanicals worden toegevoegd, waarna we als laatste stap onze Ambucha's afmaken met 4,5% alc. en een lichte bruis.",
     "story.s4t":"Serveren","story.s4b":"Licht sprankelend, in blikjes van 250 ml. Het lekkerst koud geserveerd.",
     "horeca.eyebrow":"Voor horeca & events","horeca.title":"Zet iets <em class='accent'>nieuws</em> op de kaart.","horeca.intro":"De drinkcultuur verschuift naar bewustere, lichtere keuzes, zonder in te leveren op smaak en karakter. Ambucha is de volgende stap in die verschuiving. Een openbaring voor de gast die bestelt met intentie.","horeca.cta":"Ambucha bestellen",
     "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om er mooi uit te zien, zowel in je hand als op tafel.","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Gedronken uit blik of uitgeschonken in een glas.","horeca.b7":"Een deel van de opbrengsten investeren we in de creatieve & culturele sector, <a href='ambucha-gallery.html'>bekijk onze galerie</a>.",
-    "pour.eyebrow":"","pour.title":"Vind Ambucha<br><em>bij jou in de buurt.</em>","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"Ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Bestellen",
-    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
+    "pour.eyebrow":"","pour.title":"Vind Ambucha<br><em class='upright'>bij jou in de buurt.</em>","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"Ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Bestellen",
+    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em class='upright'>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
     "foot.explore":"Ontdek","foot.contact":"Contact","foot.facts":"Feiten","foot.gv":"Glutenvrij · Vegan","foot.pop":"Product uit Portugal"
   };
   const WORDS = { en:["deliciously","boldly","brightly"], nl:["heerlijk","gedurfd","helder"] };
