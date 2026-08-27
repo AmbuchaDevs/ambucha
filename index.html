@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#E5286E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>/* three.js r128 (inlined for offline use) */
@@ -39,8 +39,8 @@
 
     --fx-a:var(--berry-a); --fx-b:var(--berry-b); --fx-g:var(--berry-g);
 
-    --serif:"Fraunces", Georgia, serif;
-    --sans:"Archivo", -apple-system, sans-serif;
+    --serif:"Playfair Display", Georgia, serif;
+    --sans:"Montserrat", -apple-system, sans-serif;
     --maxw:1220px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -649,11 +649,11 @@
             <path d="M300,86 q14,-6 30,-3"/><path d="M336,80 q12,-4 24,0"/>
           </g>
           <!-- pins (Randstad) -->
-          <g font-family="Archivo, sans-serif" font-size="15" font-weight="600" fill="#191311">
+          <g font-family="Montserrat, sans-serif" font-size="15" font-weight="600" fill="#191311">
             <g class="pin"><circle cx="300" cy="196" r="14" fill="var(--fx-a)" opacity="0.18"/><circle cx="300" cy="196" r="5.5" fill="var(--fx-a)"/><circle cx="300" cy="196" r="2" fill="#fff"/><text x="322" y="201">Amsterdam</text></g>
             <g class="pin"><circle cx="318" cy="240" r="5" fill="var(--fx-b)"/><circle cx="318" cy="240" r="1.8" fill="#fff"/><text x="336" y="245">Utrecht</text></g>
           </g>
-          <text x="404" y="392" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="19" fill="#191311" opacity="0.5">The Netherlands</text>
+          <text x="404" y="392" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="19" fill="#191311" opacity="0.5">The Netherlands</text>
         </svg>
       </div>
       <div class="pour-panel">
@@ -781,7 +781,7 @@ function makeLabelTexture(f){
 
   // ticker band (top of can rim)
   x.fillStyle='#191311';
-  x.font='600 26px Archivo';
+  x.font='600 26px Montserrat';
   x.textBaseline='middle';
   let tx=-40;
   while(tx<W+100){
@@ -801,9 +801,9 @@ function makeLabelTexture(f){
 
   // wordmark
   x.fillStyle='#191311';
-  x.font='420 170px Fraunces';
+  x.font='420 170px \'Playfair Display\'';
   x.fillText('ambucha',FX,300+fy);
-  x.font='600 40px Archivo';
+  x.font='600 40px Montserrat';
   x.fillText('H A R D   K O M B U C H A',FX,398+fy);
 
   // contour artwork + glow
@@ -819,23 +819,23 @@ function makeLabelTexture(f){
   const ng=x.createLinearGradient(FX-260,1040+fy,FX+260,1080+fy);
   ng.addColorStop(0,f.a);ng.addColorStop(1,f.b);
   x.fillStyle=ng;
-  x.font='italic 460 96px Fraunces';
+  x.font='italic 460 96px \'Playfair Display\'';
   x.fillText(f.name,FX,1058+fy);
 
   // descriptor + alc line
   x.fillStyle='#191311';
-  x.font='400 34px Archivo';
+  x.font='400 34px Montserrat';
   x.fillText('Alcoholic green-tea fermented beverage',FX,1136+fy);
   x.fillText(f.desc,FX,1180+fy);
-  x.font='600 38px Archivo';
+  x.font='600 38px Montserrat';
   x.fillText('4.5% ALC/VOL      250 ml',FX,1252+fy);
 
   // BACK PANEL — fine print (left of seam), at u≈0.06–0.28
   x.textAlign='left';
   const bx=W*0.055;let by=170+fy*0.55;
-  const head=(t)=>{x.fillStyle=f.b;x.font='600 26px Archivo';x.fillText(t.toUpperCase(),bx,by);
+  const head=(t)=>{x.fillStyle=f.b;x.font='600 26px Montserrat';x.fillText(t.toUpperCase(),bx,by);
     x.strokeStyle=f.a;x.lineWidth=2;x.beginPath();x.moveTo(bx,by+14);x.lineTo(bx+430,by+14);x.stroke();by+=52;};
-  const line=(t,dim)=>{x.fillStyle=dim?'rgba(25,19,17,.5)':'#191311';x.font='400 21px Archivo';x.fillText(t,bx,by);by+=30;};
+  const line=(t,dim)=>{x.fillStyle=dim?'rgba(25,19,17,.5)':'#191311';x.font='400 21px Montserrat';x.fillText(t,bx,by);by+=30;};
 
   head('Ingrediënten / Ingredients');
   line('Water, kombucha* (gefilterd water, kombuchacultuur*,');
@@ -865,7 +865,7 @@ function makeLabelTexture(f){
   let px=bcx,s2=f.seed*13+7;
   const r2=()=>{s2=(s2*9301+49297)%233280;return s2/233280;};
   while(px<bcx+300){const w=2+Math.floor(r2()*8);x.fillRect(px,bcy-bch/2,w,bch);px+=w+2+Math.floor(r2()*8);}
-  x.font='400 26px Archivo';x.textAlign='center';
+  x.font='400 26px Montserrat';x.textAlign='center';
   x.fillText('8 720844 1108'+(f.seed%10),bcx+150,bcy+bch/2+40);
 
   // bottom hairline
@@ -1093,10 +1093,10 @@ let heroAPI=null;
 async function initHero(){
   await document.fonts.ready;
   await Promise.all([
-    document.fonts.load('420 170px Fraunces'),
-    document.fonts.load('italic 460 96px Fraunces'),
-    document.fonts.load('600 40px Archivo'),
-    document.fonts.load('400 21px Archivo')
+    document.fonts.load('420 170px "Playfair Display"'),
+    document.fonts.load('italic 460 96px "Playfair Display"'),
+    document.fonts.load('600 40px Montserrat'),
+    document.fonts.load('400 21px Montserrat')
   ].map(p=>p.catch(()=>{})));
 
   const canvas=document.getElementById('can-canvas');
