@@ -179,6 +179,7 @@
   h2{font-family:var(--serif);font-weight:350;font-size:clamp(36px,4.8vw,60px);letter-spacing:-.025em;line-height:1.04}
   h2 em{font-style:italic;font-weight:420}
   em.upright{font-style:normal!important}
+  em.plain{background:none!important;-webkit-text-fill-color:currentColor!important;color:inherit!important}
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:64px;flex-wrap:wrap}
   .sec-head p{max-width:38ch;color:var(--ink-soft);font-size:15.5px;line-height:1.7}
 
@@ -219,8 +220,7 @@
   .story{background:var(--ink);color:var(--cream)}
   .story .sec-eyebrow{color:rgba(251,241,234,.55)}
   .story h2 em{
-    background:linear-gradient(100deg,var(--fx-a),var(--fx-g));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    color:inherit;
   }
   .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:56px}
   @media(max-width:920px){.story-grid{grid-template-columns:1fr;gap:40px}}
@@ -575,7 +575,7 @@
   <div class="wrap tasting-grid">
     <div class="reveal">
       <div class="sec-eyebrow" data-i18n="tasting.eyebrow">Request a tasting</div>
-      <h2 data-i18n="tasting.title">Taste it with<br>your <em class="upright">team.</em></h2>
+      <h2 data-i18n="tasting.title">Taste it with<br>your <em class="upright plain">team.</em></h2>
       <p class="tasting-intro" data-i18n="tasting.intro">Sign your venue up and we'll come by with the cans for a tasting. We usually get back to you within two working days.</p>
       <div class="tasting-meta">
         <a href="mailto:info@ambucha.com">info@ambucha.com</a>
@@ -986,21 +986,21 @@ function makeCan(f,envMap){
   // ---- materials --------------------------------------------------
   const metalTex=makeMetalTexture();
   const bodyMetal=new THREE.MeshStandardMaterial({
-    map:metalTex,color:0xffffff,metalness:0.95,roughness:0.32,envMap,envMapIntensity:1.2
+    map:metalTex,color:0xffffff,metalness:0.95,roughness:0.32,envMap,envMapIntensity:0.85
   });
   const rimMetal=new THREE.MeshStandardMaterial({
-    map:metalTex,color:0xffffff,metalness:0.98,roughness:0.26,envMap,envMapIntensity:1.35
+    map:metalTex,color:0xffffff,metalness:0.98,roughness:0.26,envMap,envMapIntensity:0.95
   });
   const baseMetal=new THREE.MeshStandardMaterial({
-    map:metalTex,color:0xffffff,metalness:0.93,roughness:0.38,envMap,envMapIntensity:0.9
+    map:metalTex,color:0xffffff,metalness:0.93,roughness:0.38,envMap,envMapIntensity:0.7
   });
   // coated print on aluminium — clearcoat gives the label a subtle sheen
   const labelMat=new THREE.MeshPhysicalMaterial({
     map:loadLabelTexture(f),color:0xffffff,metalness:0.04,roughness:0.62,
-    clearcoat:0.28,clearcoatRoughness:0.42,envMap,envMapIntensity:0.24
+    clearcoat:0.18,clearcoatRoughness:0.55,envMap,envMapIntensity:0.12
   });
   const lidMat=new THREE.MeshStandardMaterial({
-    map:makeLidTexture(),metalness:0.96,roughness:0.34,envMap,envMapIntensity:1.05
+    map:makeLidTexture(),metalness:0.96,roughness:0.34,envMap,envMapIntensity:0.8
   });
 
   // ---- meshes -----------------------------------------------------
@@ -1121,7 +1121,7 @@ async function initHero(){
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputEncoding=THREE.sRGBEncoding;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure=0.94;
+  renderer.toneMappingExposure=0.78;
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 
@@ -1133,8 +1133,8 @@ async function initHero(){
   const env=makeEnvMap(renderer);
 
   // lights
-  scene.add(new THREE.AmbientLight(0xffffff,0.42));
-  const key=new THREE.DirectionalLight(0xffffff,0.86);
+  scene.add(new THREE.AmbientLight(0xffffff,0.30));
+  const key=new THREE.DirectionalLight(0xffffff,0.72);
   key.position.set(2.4,3.4,3.2);
   key.castShadow=true;
   key.shadow.mapSize.set(1024,1024);
@@ -1142,7 +1142,7 @@ async function initHero(){
   key.shadow.camera.top=2.4;key.shadow.camera.bottom=-2.4;
   key.shadow.radius=6;
   scene.add(key);
-  const rim=new THREE.DirectionalLight(0xffffff,0.36);
+  const rim=new THREE.DirectionalLight(0xffffff,0.24);
   rim.position.set(-3,1.4,-2.4);scene.add(rim);
 
   // ground shadow catcher
@@ -1245,13 +1245,13 @@ async function initCards(){
     renderer.setPixelRatio(Math.min(devicePixelRatio,2));
     renderer.outputEncoding=THREE.sRGBEncoding;
     renderer.toneMapping=THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure=0.94;
+    renderer.toneMappingExposure=0.78;
     const scene=new THREE.Scene();
     const cam=new THREE.PerspectiveCamera(30,1,0.1,50);
     cam.position.set(0,0.08,5.6);cam.lookAt(0,0,0);
     const env=makeEnvMap(renderer);
-    scene.add(new THREE.AmbientLight(0xffffff,0.46));
-    const key=new THREE.DirectionalLight(0xffffff,0.82);key.position.set(2,3,3);scene.add(key);
+    scene.add(new THREE.AmbientLight(0xffffff,0.32));
+    const key=new THREE.DirectionalLight(0xffffff,0.68);key.position.set(2,3,3);scene.add(key);
     const can=makeCan(f,env);
     can.rotation.y=Math.PI-0.35;
     scene.add(can);
@@ -1333,7 +1333,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     "horeca.eyebrow":"Voor horeca & events","horeca.title":"Zet iets <em class='accent'>nieuws</em> op de kaart.","horeca.intro":"De drinkcultuur verschuift naar bewustere, lichtere keuzes, zonder in te leveren op smaak en karakter. Ambucha is de volgende stap in die verschuiving. Een openbaring voor de gast die bestelt met intentie.","horeca.cta":"Ambucha bestellen",
     "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om er mooi uit te zien, zowel in je hand als op tafel.","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Gedronken uit blik of uitgeschonken in een glas.","horeca.b7":"Een deel van de opbrengsten investeren we in de creatieve & culturele sector, <a href='ambucha-gallery.html'>bekijk onze galerie</a>.",
     "pour.eyebrow":"","pour.title":"Vind Ambucha<br><em class='upright'>bij jou in de buurt.</em>","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"Ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Bestellen",
-    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em class='upright'>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
+    "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em class='upright plain'>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
     "foot.explore":"Ontdek","foot.contact":"Contact","foot.facts":"Feiten","foot.gv":"Glutenvrij · Vegan","foot.pop":"Product uit Portugal"
   };
   const WORDS = { en:["deliciously","boldly","brightly"], nl:["heerlijk","gedurfd","helder"] };
