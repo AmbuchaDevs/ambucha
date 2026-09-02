@@ -379,6 +379,16 @@
     <p class="gate-note" data-i18n="gate.note">Under 18, no alcohol · Drink responsibly</p>
   </div>
 </div>
+<script>
+  // skip the age gate if this visitor already confirmed once — otherwise it
+  // would re-appear on every page load (e.g. navigating to About/Gallery and back)
+  try{
+    if(localStorage.getItem('ambucha-age-ok')==='1'){
+      const g=document.getElementById('agegate');
+      if(g) g.remove();
+    }
+  }catch(e){}
+</script>
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true"><div class="marquee-track" id="mtrack"></div></div>
@@ -711,6 +721,7 @@
 <script>
 /* ================= AGE GATE ================= */
 document.getElementById('gate-yes').addEventListener('click',()=>{
+  try{ localStorage.setItem('ambucha-age-ok','1'); }catch(e){}
   const g=document.getElementById('agegate');
   g.style.transition='opacity .5s ease';g.style.opacity='0';
   setTimeout(()=>g.remove(),500);
