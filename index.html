@@ -306,6 +306,7 @@
   .explainer-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
   .explainer-grid h2{font-family:var(--serif);font-weight:350;font-size:clamp(30px,4.4vw,52px);letter-spacing:-.025em;line-height:1.04}
   .explainer-grid h2 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent;transition:all .5s ease}
+  .explainer-grid h2 em.upright{background:none;-webkit-text-fill-color:currentColor;color:inherit}
   .explainer-lead{font-family:var(--serif);font-weight:330;font-size:clamp(19px,2.2vw,25px);line-height:1.5;letter-spacing:-.01em}
   .explainer-body{margin-top:18px;color:var(--ink-soft);font-size:15.5px;line-height:1.75;max-width:52ch}
   @media(max-width:860px){.explainer-grid{grid-template-columns:1fr;gap:22px}}
@@ -1423,7 +1424,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   //      One-time setup: create a free access key at https://web3forms.com
   //      (enter info@ambucha.com as the recipient), then paste the key below.
   //      After that, every submission arrives automatically in that inbox.
-  const WEB3FORMS_KEY = "1f903fb1-ef75-4fac-ba1e-ff871daa3e9f"; // Web3Forms access key → info@ambucha.com
+  const WEB3FORMS_KEY = "dfc9da52-92a6-4f86-90d0-5c88b4bead03"; // Web3Forms access key → info@ambucha.com
   const form = document.getElementById('tasting-form');
   if(form){
     const submitBtn = form.querySelector('button[type="submit"]');
