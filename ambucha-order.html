@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get Ambucha · ambucha</title>
-<meta name="description" content="Order Ambucha hard kombucha — for venues, shops and events. Tell us what you need and we'll sort it.">
+<title>Get ambucha · ambucha</title>
+<meta name="description" content="Order ambucha hard kombucha — for venues, shops and events. Tell us what you need and we'll sort it.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -118,7 +118,7 @@
     </div>
     <a class="wordmark" href="index.html#top">ambucha</a>
     <div class="nav-right">
-      <a class="btn solid nav-cta" href="ambucha-order.html" aria-current="page" id="nav-cta" data-i18n="nav.cta">Get Ambucha</a>
+      <a class="btn solid nav-cta" href="ambucha-order.html" aria-current="page" id="nav-cta" data-i18n="nav.cta">Get ambucha</a>
     </div>
   </nav>
 </header>
@@ -126,8 +126,8 @@
 <main>
   <section class="order">
     <div>
-      <div class="sec-eyebrow" data-i18n="order.eyebrow">Get Ambucha</div>
-      <h1 data-i18n="order.title">Order <em>Ambucha.</em></h1>
+      <div class="sec-eyebrow" data-i18n="order.eyebrow">Get ambucha</div>
+      <h1 data-i18n="order.title">Order <em>ambucha.</em></h1>
       <p class="order-lead" data-i18n="order.lead">Running a bar, shop or event, or just want a case at home? Tell us what you're after and we'll get back with pricing and delivery. Our online shop is on its way, in the meantime we handle orders personally.</p>
       <div class="order-meta">
         <a href="mailto:info@ambucha.com">info@ambucha.com</a>
@@ -181,8 +181,8 @@
 /* language toggle (EN/NL) */
 (function(){
   var NL = {
-    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel Ambucha",
-    "order.eyebrow":"Ambucha bestellen","order.title":"Bestel <em class='plain'>Ambucha.</em>",
+    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel ambucha",
+    "order.eyebrow":"ambucha bestellen","order.title":"Bestel <em class='plain'>ambucha.</em>",
     "order.lead":"Heb je een bar, winkel of evenement, of wil je gewoon een krat thuis hebben? Laat ons weten wat je zoekt en we nemen contact met je op over de prijs en levering. Onze webshop is in ontwikkeling, tot die tijd verwerken we bestellingen persoonlijk.",
     "order.name":"Je naam","order.company":"Bedrijf / zaak <span class='opt'>(optioneel)</span>","order.email":"E-mail","order.emailPh":"jij@email.nl",
     "order.type":"Bestellen als","order.type1":"Zaak / horeca","order.type2":"Winkel / retailer","order.type3":"Evenement","order.type4":"Thuis",
@@ -254,13 +254,13 @@
     if(typeof form.reportValidity==='function' && !form.reportValidity()) return;
     var v=function(n){var el=form.querySelector('[name="'+n+'"]');return el?(el.value||'').trim():'';};
     var name=v('name'), company=v('company'), email=v('email'), type=v('type'), msg=v('msg');
-    var subject='Order enquiry: '+(company||name||'Ambucha');
+    var subject='Order enquiry: '+(company||name||'ambucha');
     var message='Name: '+name+'\nCompany/venue: '+company+'\nEmail: '+email+'\nOrdering as: '+type+'\n\n'+msg;
     if(submitBtn) submitBtn.disabled=true;
     try{
       var r=await fetch('https://api.web3forms.com/submit',{
         method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify({access_key:KEY, subject:subject, from_name:'Ambucha — Order', name:name, company:company, email:email, replyto:email, type:type, message:message})
+        body:JSON.stringify({access_key:KEY, subject:subject, from_name:'ambucha — Order', name:name, company:company, email:email, replyto:email, type:type, message:message})
       });
       var data=await r.json().catch(function(){return {};});
       if(r.ok && data.success){ showThanks(); return; }

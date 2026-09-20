@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Gallery · ambucha</title>
-<meta name="description" content="The Gallery — Ambucha gives emerging artists a stage. Join the guest list for the next Gallery event.">
+<meta name="description" content="The Gallery — ambucha gives emerging artists a stage. Join the guest list for the next Gallery event.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -123,7 +123,7 @@
     </div>
     <a class="wordmark" href="index.html#top">ambucha</a>
     <div class="nav-right">
-      <a class="btn solid nav-cta" href="ambucha-order.html">Get Ambucha</a>
+      <a class="btn solid nav-cta" href="ambucha-order.html">Get ambucha</a>
     </div>
   </nav>
 </header>
@@ -137,7 +137,7 @@
           <h2>Supporting<br><em>small artists.</em></h2>
         </div>
         <div class="g-body">
-          <p class="lead">At Ambucha, we believe the cultural and creative sector is what keeps things moving, it's where new ideas, new music and new images come from, and it's the world our brand feels most at home in. That's why we invest part of what we earn back into that sector.</p>
+          <p class="lead">At ambucha, we believe the cultural and creative sector is what keeps things moving, it's where new ideas, new music and new images come from, and it's the world our brand feels most at home in. That's why we invest part of what we earn back into that sector.</p>
           <p>We do this through The Gallery: our own platform where we give emerging artists a stage. We host Gallery evenings, cover the costs, and connect makers directly with buyers. Each year, we feature ten artists in The Gallery and on our socials.</p>
           <p>Want to be there? Sign up for the guest list and join us at the next Gallery event.</p>
         </div>
@@ -226,13 +226,13 @@
     if(typeof form.reportValidity==='function' && !form.reportValidity()) return;
     var v=function(n){var el=form.querySelector('[name="'+n+'"]');return el?(el.value||'').trim():'';};
     var name=v('name'), email=v('email'), role=v('role'), msg=v('msg');
-    var subject='Gallery guest list: '+(name||'Ambucha');
+    var subject='Gallery guest list: '+(name||'ambucha');
     var message='Name: '+name+'\nEmail: '+email+'\nJoining as: '+role+'\n\n'+msg;
     if(submitBtn) submitBtn.disabled=true;
     try{
       var r=await fetch('https://api.web3forms.com/submit',{
         method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify({access_key:KEY, subject:subject, from_name:'Ambucha — The Gallery', name:name, email:email, replyto:email, role:role, message:message})
+        body:JSON.stringify({access_key:KEY, subject:subject, from_name:'ambucha — The Gallery', name:name, email:email, replyto:email, role:role, message:message})
       });
       var data=await r.json().catch(function(){return {};});
       if(r.ok && data.success){ showThanks(); return; }
