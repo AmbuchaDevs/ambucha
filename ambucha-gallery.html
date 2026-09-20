@@ -38,6 +38,13 @@
   .wordmark{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:440;letter-spacing:-.02em;color:var(--ink);text-decoration:none;line-height:1}
   .nav-cta{padding:15px 32px;font-size:12px;letter-spacing:.16em}
   @media(max-width:760px){.wordmark{font-size:26px}.nav-cta{padding:11px 18px;font-size:10px;letter-spacing:.1em}.nav{gap:10px;padding:13px 18px}}
+  .nav-left{display:flex;align-items:center;gap:16px}
+  .lang-toggle{display:inline-flex;align-items:center;gap:2px;border:0;border-radius:100px;padding:0;background:transparent}
+  .lang-btn{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;padding:5px 6px;border:0;border-radius:100px;color:#cdc6bd;background:transparent;cursor:pointer;transition:color .2s ease}
+  .lang-toggle .lang-btn + .lang-btn{border-left:1px solid rgba(25,19,17,.12)}
+  .lang-btn:hover{color:#9b8f83}
+  .lang-btn[aria-pressed="true"]{background:transparent;color:#8a7f74}
+  .lang-btn:focus-visible{outline:2px solid var(--fx-a);outline-offset:2px}
   .menu{position:relative}
   .menu-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:100px;padding:11px 18px;cursor:pointer;transition:background .2s ease}
   .menu-btn:hover{background:rgba(25,19,17,.05)}
@@ -105,25 +112,29 @@
 <header>
   <nav class="nav" aria-label="Main">
     <div class="nav-left">
+      <div class="lang-toggle" role="group" aria-label="Language / Taal">
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+      </div>
       <div class="menu">
         <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-haspopup="true">
           <span class="menu-ico" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span>Menu</span>
+          <span data-i18n="nav.menu">Menu</span>
         </button>
         <div class="menu-panel" id="menu-panel" hidden>
-          <a href="index.html#flavors">Flavors</a>
-          <a href="index.html#story">How it's made</a>
-          <a href="index.html#horeca">For horeca</a>
-          <a href="index.html#tasting">Request a tasting</a>
-          <a href="index.html#pour">Where we pour</a>
-          <a href="ambucha-gallery.html" aria-current="page">Gallery</a>
-          <a href="ambucha-about.html">About us</a>
+          <a href="index.html#flavors" data-i18n="nav.flavors">Flavors</a>
+          <a href="index.html#story" data-i18n="nav.made">How it's made</a>
+          <a href="index.html#horeca" data-i18n="nav.horeca">For horeca</a>
+          <a href="index.html#tasting" data-i18n="nav.tasting">Request a tasting</a>
+          <a href="index.html#pour" data-i18n="nav.pour">Where we pour</a>
+          <a href="ambucha-gallery.html" aria-current="page" data-i18n="nav.gallery">Gallery</a>
+          <a href="ambucha-about.html" data-i18n="nav.about">About us</a>
         </div>
       </div>
     </div>
     <a class="wordmark" href="index.html#top">ambucha</a>
     <div class="nav-right">
-      <a class="btn solid nav-cta" href="ambucha-order.html">Get ambucha</a>
+      <a class="btn solid nav-cta" href="ambucha-order.html" data-i18n="nav.cta">Get ambucha</a>
     </div>
   </nav>
 </header>
@@ -133,55 +144,55 @@
     <div class="wrap">
       <div class="g-head">
         <div>
-          <div class="sec-eyebrow">The Gallery</div>
-          <h2>Supporting<br><em>small artists.</em></h2>
+          <div class="sec-eyebrow" data-i18n="g.eyebrow">The Gallery</div>
+          <h2 data-i18n="g.title">Supporting<br><em>small artists.</em></h2>
         </div>
         <div class="g-body">
-          <p class="lead">At ambucha, we believe the cultural and creative sector is what keeps things moving, it's where new ideas, new music and new images come from, and it's the world our brand feels most at home in. That's why we invest part of what we earn back into that sector.</p>
-          <p>We do this through The Gallery: our own platform where we give emerging artists a stage. We host Gallery evenings, cover the costs, and connect makers directly with buyers. Each year, we feature ten artists in The Gallery and on our socials.</p>
-          <p>Want to be there? Sign up for the guest list and join us at the next Gallery event.</p>
+          <p class="lead" data-i18n="g.lead">At ambucha, we believe the cultural and creative sector is what keeps things moving, it's where new ideas, new music and new images come from, and it's the world our brand feels most at home in. That's why we invest part of what we earn back into that sector.</p>
+          <p data-i18n="g.body1">We do this through The Gallery: our own platform where we give emerging artists a stage. We host Gallery evenings, cover the costs, and connect makers directly with buyers. Each year, we feature ten artists in The Gallery and on our socials.</p>
+          <p data-i18n="g.body2">Want to be there? Sign up for the guest list and join us at the next Gallery event.</p>
         </div>
       </div>
 
       <div class="gallery-grid">
-        <figure class="art"><div class="art-canvas" style="--g1:#E5286E;--g2:#7C2050"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
-        <figure class="art"><div class="art-canvas" style="--g1:#F49A2B;--g2:#E35D0E"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
-        <figure class="art"><div class="art-canvas" style="--g1:#CBDA2A;--g2:#4C9B3D"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
-        <figure class="art"><div class="art-canvas" style="--g1:#E0187A;--g2:#F49A2B"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
-        <figure class="art"><div class="art-canvas" style="--g1:#4C9B3D;--g2:#E5286E"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
-        <figure class="art"><div class="art-canvas" style="--g1:#7C2050;--g2:#CBDA2A"></div><figcaption><b>Untitled</b><span>Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#E5286E;--g2:#7C2050"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#F49A2B;--g2:#E35D0E"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#CBDA2A;--g2:#4C9B3D"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#E0187A;--g2:#F49A2B"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#4C9B3D;--g2:#E5286E"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
+        <figure class="art"><div class="art-canvas" style="--g1:#7C2050;--g2:#CBDA2A"></div><figcaption><b data-i18n="g.piece">Untitled</b><span data-i18n="g.slot">Featured artist, coming soon</span></figcaption></figure>
       </div>
 
       <div class="guest" id="guestlist">
         <div>
-          <h3>Join the <em>guest list.</em></h3>
-          <p class="lede">Leave your details and we'll invite you to the next Gallery event. Artists welcome too, tell us what you make.</p>
-          <p class="lede">Or reach us any time at <a href="mailto:info@ambucha.com" style="color:var(--ink)">info@ambucha.com</a>.</p>
+          <h3 data-i18n="guest.title">Join the <em>guest list.</em></h3>
+          <p class="lede" data-i18n="guest.lede1">Leave your details and we'll invite you to the next Gallery event. Artists welcome too, tell us what you make.</p>
+          <p class="lede" data-i18n="guest.lede2">Or reach us any time at <a href="mailto:info@ambucha.com" style="color:var(--ink)">info@ambucha.com</a>.</p>
         </div>
         <form class="guest-form" id="guest-form" novalidate>
           <div class="field">
-            <label for="gf-name">Your name</label>
+            <label for="gf-name" data-i18n="guest.name">Your name</label>
             <input id="gf-name" name="name" type="text" required placeholder="Jane de Vries">
           </div>
           <div class="field">
-            <label for="gf-email">Email</label>
-            <input id="gf-email" name="email" type="email" required placeholder="you@email.com">
+            <label for="gf-email" data-i18n="guest.email">Email</label>
+            <input id="gf-email" name="email" type="email" required placeholder="you@email.com" data-i18n-ph="guest.emailPh">
           </div>
           <div class="field">
-            <label for="gf-role">I'm joining as</label>
+            <label for="gf-role" data-i18n="guest.role">I'm joining as</label>
             <select id="gf-role" name="role">
-              <option>Guest</option>
-              <option>Artist</option>
-              <option>Buyer / gallery</option>
+              <option value="Guest" data-i18n="guest.role1">Guest</option>
+              <option value="Artist" data-i18n="guest.role2">Artist</option>
+              <option value="Buyer / gallery" data-i18n="guest.role3">Buyer / gallery</option>
             </select>
           </div>
           <div class="field">
-            <label for="gf-msg">Anything to add? <span class="opt">(optional)</span></label>
-            <textarea id="gf-msg" name="msg" rows="3" placeholder="A link to your work, a question…"></textarea>
+            <label for="gf-msg" data-i18n="guest.msg">Anything to add? <span class="opt">(optional)</span></label>
+            <textarea id="gf-msg" name="msg" rows="3" placeholder="A link to your work, a question…" data-i18n-ph="guest.msgPh"></textarea>
           </div>
-          <button type="submit" class="btn solid">Join the guest list</button>
-          <p class="guest-note">We'll only use this to invite you to Gallery events.</p>
-          <p class="guest-success" id="guest-success" hidden>Thanks! You're on the list, we'll be in touch about the next event.</p>
+          <button type="submit" class="btn solid" data-i18n="guest.submit">Join the guest list</button>
+          <p class="guest-note" data-i18n="guest.note">We'll only use this to invite you to Gallery events.</p>
+          <p class="guest-success" id="guest-success" hidden data-i18n="guest.success">Thanks! You're on the list, we'll be in touch about the next event.</p>
         </form>
       </div>
     </div>
@@ -199,6 +210,58 @@
 </footer>
 
 <script>
+/* language toggle (EN/NL) */
+(function(){
+  var NL = {
+    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel ambucha",
+    "g.eyebrow":"De Galerie","g.title":"We steunen<br><em>kleine kunstenaars.</em>",
+    "g.lead":"Bij ambucha geloven we dat de culturele en creatieve sector alles in beweging houdt, het is waar nieuwe ideeën, nieuwe muziek en nieuwe beelden vandaan komen, en de wereld waarin ons merk zich het meest thuis voelt. Daarom investeren we een deel van wat we verdienen terug in die sector.",
+    "g.body1":"Dat doen we via The Gallery: ons eigen platform waar we opkomende kunstenaars een podium geven. We organiseren Gallery-avonden, dekken de kosten en brengen makers rechtstreeks in contact met kopers. Elk jaar geven we tien kunstenaars een plek in The Gallery en op onze social media.",
+    "g.body2":"Wil je erbij zijn? Meld je aan voor de gastenlijst en sluit je aan bij het volgende Gallery-evenement.",
+    "g.piece":"Zonder titel","g.slot":"Kunstenaar volgt binnenkort",
+    "guest.title":"Meld je aan voor de <em>gastenlijst.</em>",
+    "guest.lede1":"Laat je gegevens achter en we nodigen je uit voor het volgende Gallery-evenement. Kunstenaars ook welkom, laat ons weten wat je maakt.",
+    "guest.lede2":"Of neem altijd contact met ons op via <a href='mailto:info@ambucha.com' style='color:var(--ink)'>info@ambucha.com</a>.",
+    "guest.name":"Je naam","guest.email":"E-mail","guest.emailPh":"jij@email.nl",
+    "guest.role":"Ik doe mee als","guest.role1":"Gast","guest.role2":"Kunstenaar","guest.role3":"Koper / galerie",
+    "guest.msg":"Nog iets toe te voegen? <span class='opt'>(optioneel)</span>","guest.msgPh":"Een link naar je werk, een vraag…",
+    "guest.submit":"Meld je aan voor de gastenlijst","guest.note":"We gebruiken dit alleen om je uit te nodigen voor Gallery-evenementen.",
+    "guest.success":"Bedankt! Je staat op de lijst, we nemen contact op over het volgende evenement."
+  };
+  function apply(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(l==='nl' && NL[k]!==undefined){
+        if(el.dataset.en===undefined) el.dataset.en = el.innerHTML;
+        el.innerHTML = NL[k];
+      } else if(l==='en' && el.dataset.en!==undefined){
+        el.innerHTML = el.dataset.en;
+      }
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var k = el.getAttribute('data-i18n-ph');
+      if(l==='nl' && NL[k]!==undefined){
+        if(el.dataset.enPh===undefined) el.dataset.enPh = el.getAttribute('placeholder')||'';
+        el.setAttribute('placeholder', NL[k]);
+      } else if(l==='en' && el.dataset.enPh!==undefined){
+        el.setAttribute('placeholder', el.dataset.enPh);
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    try{ localStorage.setItem('ambucha-lang', l); }catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.lang); });
+  });
+  var start = "nl";
+  try{
+    var saved = localStorage.getItem('ambucha-lang');
+    if(saved==='nl' || saved==='en') start = saved;
+  }catch(e){}
+  apply(start);
+})();
+
 /* dropdown menu */
 (function(){
   var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');

@@ -39,6 +39,13 @@
   .wordmark{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:440;letter-spacing:-.02em;color:var(--ink);text-decoration:none;line-height:1}
   .nav-cta{padding:15px 32px;font-size:12px;letter-spacing:.16em}
   @media(max-width:760px){.wordmark{font-size:26px}.nav-cta{padding:11px 18px;font-size:10px;letter-spacing:.1em}.nav{gap:10px;padding:13px 18px}}
+  .nav-left{display:flex;align-items:center;gap:16px}
+  .lang-toggle{display:inline-flex;align-items:center;gap:2px;border:0;border-radius:100px;padding:0;background:transparent}
+  .lang-btn{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;padding:5px 6px;border:0;border-radius:100px;color:#cdc6bd;background:transparent;cursor:pointer;transition:color .2s ease}
+  .lang-toggle .lang-btn + .lang-btn{border-left:1px solid rgba(25,19,17,.12)}
+  .lang-btn:hover{color:#9b8f83}
+  .lang-btn[aria-pressed="true"]{background:transparent;color:#8a7f74}
+  .lang-btn:focus-visible{outline:2px solid var(--fx-a);outline-offset:2px}
   .menu{position:relative}
   .menu-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:100px;padding:11px 18px;cursor:pointer;transition:background .2s ease}
   .menu-btn:hover{background:rgba(25,19,17,.05)}
@@ -90,53 +97,57 @@
 <header>
   <nav class="nav" aria-label="Main">
     <div class="nav-left">
+      <div class="lang-toggle" role="group" aria-label="Language / Taal">
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+      </div>
       <div class="menu">
         <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-haspopup="true">
           <span class="menu-ico" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span>Menu</span>
+          <span data-i18n="nav.menu">Menu</span>
         </button>
         <div class="menu-panel" id="menu-panel" hidden>
-          <a href="index.html#flavors">Flavors</a>
-          <a href="index.html#story">How it's made</a>
-          <a href="index.html#horeca">For horeca</a>
-          <a href="index.html#tasting">Request a tasting</a>
-          <a href="index.html#pour">Where we pour</a>
-          <a href="ambucha-about.html" aria-current="page">About us</a>
+          <a href="index.html#flavors" data-i18n="nav.flavors">Flavors</a>
+          <a href="index.html#story" data-i18n="nav.made">How it's made</a>
+          <a href="index.html#horeca" data-i18n="nav.horeca">For horeca</a>
+          <a href="index.html#tasting" data-i18n="nav.tasting">Request a tasting</a>
+          <a href="index.html#pour" data-i18n="nav.pour">Where we pour</a>
+          <a href="ambucha-about.html" aria-current="page" data-i18n="nav.about">About us</a>
         </div>
       </div>
     </div>
     <a class="wordmark" href="index.html#top">ambucha</a>
     <div class="nav-right">
-      <a class="btn solid nav-cta" href="ambucha-order.html">Get ambucha</a>
+      <a class="btn solid nav-cta" href="ambucha-order.html" data-i18n="nav.cta">Get ambucha</a>
     </div>
   </nav>
 </header>
 
 <main>
   <section class="page-hero">
-    <div class="sec-eyebrow">About us</div>
-    <h1>We're Avangeline<br>and Sterre.</h1>
-    <p class="page-lead">The two friends behind ambucha.</p>
+    <div class="sec-eyebrow" data-i18n="ab.eyebrow">About us</div>
+    <h1 data-i18n="ab.h1">We're Avangeline<br>and Sterre.</h1>
+    <p class="page-lead" data-i18n="ab.lead">The two friends behind ambucha.</p>
   </section>
 
   <section class="about-story">
-    <p>We met at university in Amsterdam. Avangeline grew up in San Diego, Sterre in Maastricht, so comparing the two has been a running feature of the friendship ever since. Cities, food, how people spend a Friday. Usually over a drink somewhere.</p>
-    <p>It came up on holiday, sitting on a beach, talking about what we like to drink. Avangeline said the thing she missed most from home was hard kombucha. Sterre had never had one, but knew it would be perfect in Amsterdam.</p>
-    <p class="about-pull">So we made it.</p>
-    <p>ambucha is a 4.5% hard kombucha that moves with the day, from bright afternoons on a terrace to late nights out. Naturally fermented. Real fruit. Three flavours: Golden Mango, Fresh Berry, Pineapple Glow. Women-owned, founded by the two of us.</p>
-    <p>We're starting between Amsterdam and Utrecht, in the bars we already spend our time in. This city has always been quick with a new thing, and this one only takes one round to make sense.</p>
+    <p data-i18n="ab.p1">We met at university in Amsterdam. Avangeline grew up in San Diego, Sterre in Maastricht, so comparing the two has been a running feature of the friendship ever since. Cities, food, how people spend a Friday. Usually over a drink somewhere.</p>
+    <p data-i18n="ab.p2">It came up on holiday, sitting on a beach, talking about what we like to drink. Avangeline said the thing she missed most from home was hard kombucha. Sterre had never had one, but knew it would be perfect in Amsterdam.</p>
+    <p class="about-pull" data-i18n="ab.pull">So we made it.</p>
+    <p data-i18n="ab.p3">ambucha is a 4.5% hard kombucha that moves with the day, from bright afternoons on a terrace to late nights out. Naturally fermented. Real fruit. Three flavours: Golden Mango, Fresh Berry, Pineapple Glow. Women-owned, founded by the two of us.</p>
+    <p data-i18n="ab.p4">We're starting between Amsterdam and Utrecht, in the bars we already spend our time in. This city has always been quick with a new thing, and this one only takes one round to make sense.</p>
   </section>
 
   <div class="about-facts">
-    <div class="fact"><b>Amsterdam</b><span>Where we met</span></div>
-    <div class="fact"><b>2</b><span>Women-owned</span></div>
-    <div class="fact"><b>3</b><span>Flavours</span></div>
-    <div class="fact"><b>AMS · UTR</b><span>Where we're starting</span></div>
+    <div class="fact"><b>Amsterdam</b><span data-i18n="ab.f1">Where we met</span></div>
+    <div class="fact"><b>2</b><span data-i18n="ab.f2">Women-owned</span></div>
+    <div class="fact"><b>3</b><span data-i18n="ab.f3">Flavours</span></div>
+    <div class="fact"><b>AMS · UTR</b><span data-i18n="ab.f4">Where we're starting</span></div>
   </div>
 
   <div class="about-cta">
-    <a class="btn solid" href="index.html#flavors">Meet the flavors</a>
-    <a class="btn ghost" href="ambucha-order.html">Get ambucha</a>
+    <a class="btn solid" href="index.html#flavors" data-i18n="ab.cta1">Meet the flavors</a>
+    <a class="btn ghost" href="ambucha-order.html" data-i18n="nav.cta">Get ambucha</a>
   </div>
 </main>
 
@@ -151,6 +162,44 @@
 </footer>
 
 <script>
+/* language toggle (EN/NL) */
+(function(){
+  var NL = {
+    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel ambucha",
+    "ab.eyebrow":"Over ons","ab.h1":"Wij zijn Avangeline<br>en Sterre.","ab.lead":"De twee vriendinnen achter ambucha.",
+    "ab.p1":"We ontmoetten elkaar op de universiteit in Amsterdam. Avangeline groeide op in San Diego, Sterre in Maastricht, dus het vergelijken van de twee is sindsdien een terugkerend thema in de vriendschap. Steden, eten, hoe mensen hun vrijdag doorbrengen. Meestal onder het genot van een drankje.",
+    "ab.p2":"Het kwam ter sprake tijdens een vakantie, op het strand, pratend over wat we graag drinken. Avangeline zei dat het ding dat ze het meest miste van thuis hard kombucha was. Sterre had er nog nooit een gehad, maar wist dat het perfect zou zijn in Amsterdam.",
+    "ab.pull":"Dus maakten we het zelf.",
+    "ab.p3":"ambucha is een hard kombucha van 4,5% die met de dag meebeweegt, van zonnige middagen op het terras tot late avonden uit. Natuurlijk gefermenteerd. Echt fruit. Drie smaken: Golden Mango, Fresh Berry, Pineapple Glow. Vrouwelijk eigendom, opgericht door ons tweeën.",
+    "ab.p4":"We beginnen tussen Amsterdam en Utrecht, in de bars waar we toch al komen. Deze stad staat altijd open voor iets nieuws, en dit is er eentje die je na één rondje al snapt.",
+    "ab.f1":"Waar we elkaar ontmoetten","ab.f2":"Vrouwelijk eigendom","ab.f3":"Smaken","ab.f4":"Waar we beginnen",
+    "ab.cta1":"Ontdek de smaken"
+  };
+  function apply(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(l==='nl' && NL[k]!==undefined){
+        if(el.dataset.en===undefined) el.dataset.en = el.innerHTML;
+        el.innerHTML = NL[k];
+      } else if(l==='en' && el.dataset.en!==undefined){
+        el.innerHTML = el.dataset.en;
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    try{ localStorage.setItem('ambucha-lang', l); }catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.lang); });
+  });
+  var start = "nl";
+  try{
+    var saved = localStorage.getItem('ambucha-lang');
+    if(saved==='nl' || saved==='en') start = saved;
+  }catch(e){}
+  apply(start);
+})();
+
 (function(){
   var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');
   if(!btn||!panel) return;
