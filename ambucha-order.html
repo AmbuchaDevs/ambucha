@@ -38,6 +38,13 @@
   .wordmark{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:440;letter-spacing:-.02em;color:var(--ink);text-decoration:none;line-height:1}
   .nav-cta{padding:15px 32px;font-size:12px;letter-spacing:.16em}
   @media(max-width:760px){.wordmark{font-size:26px}.nav-cta{padding:11px 18px;font-size:10px;letter-spacing:.1em}.nav{gap:10px;padding:13px 18px}}
+  .nav-left{display:flex;align-items:center;gap:16px}
+  .lang-toggle{display:inline-flex;align-items:center;gap:2px;border:0;border-radius:100px;padding:0;background:transparent}
+  .lang-btn{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;padding:5px 6px;border:0;border-radius:100px;color:#cdc6bd;background:transparent;cursor:pointer;transition:color .2s ease}
+  .lang-toggle .lang-btn + .lang-btn{border-left:1px solid rgba(25,19,17,.12)}
+  .lang-btn:hover{color:#9b8f83}
+  .lang-btn[aria-pressed="true"]{background:transparent;color:#8a7f74}
+  .lang-btn:focus-visible{outline:2px solid var(--fx-a);outline-offset:2px}
   .menu{position:relative}
   .menu-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:100px;padding:11px 18px;cursor:pointer;transition:background .2s ease}
   .menu-btn:hover{background:rgba(25,19,17,.05)}
@@ -62,6 +69,7 @@
   .sec-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.46em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
   h1{font-family:var(--serif);font-weight:340;font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-.03em}
   h1 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1 em.plain{background:none;-webkit-text-fill-color:currentColor;color:inherit}
   .order-lead{margin:22px 0 0;max-width:44ch;font-size:16px;line-height:1.7;color:var(--ink-soft)}
   .order-meta{display:flex;gap:22px;margin-top:26px;font-size:14px;flex-wrap:wrap}
   .order-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
@@ -88,25 +96,29 @@
 <header>
   <nav class="nav" aria-label="Main">
     <div class="nav-left">
+      <div class="lang-toggle" role="group" aria-label="Language / Taal">
+        <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" data-lang="nl" aria-pressed="false">NL</button>
+      </div>
       <div class="menu">
         <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-haspopup="true">
           <span class="menu-ico" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span>Menu</span>
+          <span data-i18n="nav.menu">Menu</span>
         </button>
         <div class="menu-panel" id="menu-panel" hidden>
-          <a href="index.html#flavors">Flavors</a>
-          <a href="index.html#story">How it's made</a>
-          <a href="index.html#horeca">For horeca</a>
-          <a href="index.html#tasting">Request a tasting</a>
-          <a href="index.html#pour">Where we pour</a>
-          <a href="ambucha-gallery.html">Gallery</a>
-          <a href="ambucha-about.html">About us</a>
+          <a href="index.html#flavors" data-i18n="nav.flavors">Flavors</a>
+          <a href="index.html#story" data-i18n="nav.made">How it's made</a>
+          <a href="index.html#horeca" data-i18n="nav.horeca">For horeca</a>
+          <a href="index.html#tasting" data-i18n="nav.tasting">Request a tasting</a>
+          <a href="index.html#pour" data-i18n="nav.pour">Where we pour</a>
+          <a href="ambucha-gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="ambucha-about.html" data-i18n="nav.about">About us</a>
         </div>
       </div>
     </div>
     <a class="wordmark" href="index.html#top">ambucha</a>
     <div class="nav-right">
-      <a class="btn solid nav-cta" href="ambucha-order.html" aria-current="page">Get Ambucha</a>
+      <a class="btn solid nav-cta" href="ambucha-order.html" aria-current="page" id="nav-cta" data-i18n="nav.cta">Get Ambucha</a>
     </div>
   </nav>
 </header>
@@ -114,9 +126,9 @@
 <main>
   <section class="order">
     <div>
-      <div class="sec-eyebrow">Get Ambucha</div>
-      <h1>Order <em>Ambucha.</em></h1>
-      <p class="order-lead">Running a bar, shop or event, or just want a case at home? Tell us what you're after and we'll get back with pricing and delivery. Our online shop is on its way, in the meantime we handle orders personally.</p>
+      <div class="sec-eyebrow" data-i18n="order.eyebrow">Get Ambucha</div>
+      <h1 data-i18n="order.title">Order <em>Ambucha.</em></h1>
+      <p class="order-lead" data-i18n="order.lead">Running a bar, shop or event, or just want a case at home? Tell us what you're after and we'll get back with pricing and delivery. Our online shop is on its way, in the meantime we handle orders personally.</p>
       <div class="order-meta">
         <a href="mailto:info@ambucha.com">info@ambucha.com</a>
         <a href="https://instagram.com/drinkambucha" target="_blank" rel="noopener">@drinkambucha</a>
@@ -124,33 +136,33 @@
     </div>
     <form class="order-form" id="order-form" novalidate>
       <div class="field">
-        <label for="of-name">Your name</label>
+        <label for="of-name" data-i18n="order.name">Your name</label>
         <input id="of-name" name="name" type="text" required placeholder="Jane de Vries">
       </div>
       <div class="field">
-        <label for="of-company">Company / venue <span class="opt">(optional)</span></label>
+        <label for="of-company" data-i18n="order.company">Company / venue <span class="opt">(optional)</span></label>
         <input id="of-company" name="company" type="text" placeholder="Café Zon, Amsterdam">
       </div>
       <div class="field">
-        <label for="of-email">Email</label>
-        <input id="of-email" name="email" type="email" required placeholder="you@email.com">
+        <label for="of-email" data-i18n="order.email">Email</label>
+        <input id="of-email" name="email" type="email" required placeholder="you@email.com" data-i18n-ph="order.emailPh">
       </div>
       <div class="field">
-        <label for="of-type">Ordering as</label>
+        <label for="of-type" data-i18n="order.type">Ordering as</label>
         <select id="of-type" name="type">
-          <option>Venue / horeca</option>
-          <option>Shop / retailer</option>
-          <option>Event</option>
-          <option>At home</option>
+          <option value="Venue / horeca" data-i18n="order.type1">Venue / horeca</option>
+          <option value="Shop / retailer" data-i18n="order.type2">Shop / retailer</option>
+          <option value="Event" data-i18n="order.type3">Event</option>
+          <option value="At home" data-i18n="order.type4">At home</option>
         </select>
       </div>
       <div class="field">
-        <label for="of-msg">What would you like? <span class="opt">(quantity, flavours, timing)</span></label>
-        <textarea id="of-msg" name="msg" rows="3" placeholder="e.g. 5 cases, mixed flavours, before the end of the month"></textarea>
+        <label for="of-msg" data-i18n="order.msg">What would you like? <span class="opt">(quantity, flavours, timing)</span></label>
+        <textarea id="of-msg" name="msg" rows="3" placeholder="e.g. 5 cases, mixed flavours, before the end of the month" data-i18n-ph="order.msgPh"></textarea>
       </div>
-      <button type="submit" class="btn solid">Send order enquiry</button>
-      <p class="order-note">We'll reply to the email you provide, usually within two working days.</p>
-      <p class="order-success" id="order-success" hidden>Thanks! Your enquiry is on its way, we'll be in touch soon.</p>
+      <button type="submit" class="btn solid" data-i18n="order.submit">Send order enquiry</button>
+      <p class="order-note" data-i18n="order.note">We'll reply to the email you provide, usually within two working days.</p>
+      <p class="order-success" id="order-success" hidden data-i18n="order.success">Thanks! Your enquiry is on its way, we'll be in touch soon.</p>
     </form>
   </section>
 </main>
@@ -166,6 +178,55 @@
 </footer>
 
 <script>
+/* language toggle (EN/NL) */
+(function(){
+  var NL = {
+    "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel Ambucha",
+    "order.eyebrow":"Ambucha bestellen","order.title":"Bestel <em class='plain'>Ambucha.</em>",
+    "order.lead":"Heb je een bar, winkel of evenement, of wil je gewoon een krat thuis hebben? Laat ons weten wat je zoekt en we nemen contact met je op over de prijs en levering. Onze webshop is in ontwikkeling, tot die tijd verwerken we bestellingen persoonlijk.",
+    "order.name":"Je naam","order.company":"Bedrijf / zaak <span class='opt'>(optioneel)</span>","order.email":"E-mail","order.emailPh":"jij@email.nl",
+    "order.type":"Bestellen als","order.type1":"Zaak / horeca","order.type2":"Winkel / retailer","order.type3":"Evenement","order.type4":"Thuis",
+    "order.msg":"Wat wil je bestellen? <span class='opt'>(aantal, smaken, timing)</span>","order.msgPh":"bijv. 5 kratten, gemengde smaken, voor het einde van de maand",
+    "order.submit":"Verstuur bestelaanvraag","order.note":"We reageren via het opgegeven e-mailadres, meestal binnen twee werkdagen.",
+    "order.success":"Bedankt! Je aanvraag is verstuurd, we nemen snel contact op."
+  };
+  function apply(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if(l==='nl' && NL[k]!==undefined){
+        if(el.dataset.en===undefined) el.dataset.en = el.innerHTML;
+        el.innerHTML = NL[k];
+      } else if(l==='en' && el.dataset.en!==undefined){
+        el.innerHTML = el.dataset.en;
+      }
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var k = el.getAttribute('data-i18n-ph');
+      if(l==='nl' && NL[k]!==undefined){
+        if(el.dataset.enPh===undefined) el.dataset.enPh = el.getAttribute('placeholder')||'';
+        el.setAttribute('placeholder', NL[k]);
+      } else if(l==='en' && el.dataset.enPh!==undefined){
+        el.setAttribute('placeholder', el.dataset.enPh);
+      }
+    });
+    var navCta = document.getElementById('nav-cta');
+    if(navCta) navCta.style.display = (l==='nl') ? 'none' : '';
+    document.querySelectorAll('.lang-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    try{ localStorage.setItem('ambucha-lang', l); }catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.lang); });
+  });
+  var start = "en";
+  try{
+    var saved = localStorage.getItem('ambucha-lang');
+    if(saved==='nl' || saved==='en') start = saved;
+    else if((navigator.language||'').toLowerCase().startsWith('nl')) start = 'nl';
+  }catch(e){}
+  apply(start);
+})();
+
 /* dropdown menu */
 (function(){
   var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');
