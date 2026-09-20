@@ -295,6 +295,7 @@
   h2 em.accent{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent;transition:all .5s ease}
   /* colour the italic emphasis in section headings (matches active flavour) */
   #flavors h2 em, .pour h2 em, .tasting h2 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent;transition:all .5s ease}
+  .pour h2 em.upright{background:none;-webkit-text-fill-color:currentColor;color:inherit}
 
   /* hint sits right under the can */
   .stage .stage-hint{top:42px;right:auto;bottom:auto;left:50%;transform:translateX(-50%);
@@ -413,7 +414,6 @@
           <a href="#horeca" data-i18n="nav.horeca">For horeca</a>
           <a href="#tasting" data-i18n="nav.tasting">Request a tasting</a>
           <a href="#pour" data-i18n="nav.pour">Where we pour</a>
-          <a href="ambucha-gallery.html" data-i18n="nav.gallery">Gallery</a>
           <a href="ambucha-about.html" data-i18n="nav.about">About us</a>
         </div>
       </div>
@@ -576,7 +576,7 @@
       <li data-i18n="horeca.b2">Gluten free and vegan</li>
       <li data-i18n="horeca.b5">Shelf stable for up to 18 months</li>
       <li data-i18n="horeca.b6">Drunk from the can or poured in a glass. Also fits glassware venues</li>
-      <li data-i18n="horeca.b7">Supporting small artists, <a href="ambucha-gallery.html">take a look in our gallery</a></li>
+      <li data-i18n="horeca.b7">Supporting small artists and initiatives across the creative industry</li>
     </ul>
   </div>
 </section>
@@ -696,7 +696,6 @@
         <a href="#horeca" data-i18n="nav.horeca">For horeca</a>
         <a href="#tasting" data-i18n="nav.tasting">Request a tasting</a>
         <a href="#pour" data-i18n="nav.pour">Where we pour</a>
-        <a href="ambucha-gallery.html" data-i18n="nav.gallery">Gallery</a>
         <a href="ambucha-about.html" data-i18n="nav.about">About us</a>
       </div>
       <div class="foot-col">
@@ -1345,12 +1344,12 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     "story.s3t":"Blenden","story.s3b":"Echt vruchtensap met natuurlijke aroma's en botanicals worden toegevoegd, waarna we als laatste stap onze ambucha's afmaken met 4,5% alc. en een lichte bruis.",
     "story.s4t":"Serveren","story.s4b":"Licht sprankelend, in blikjes van 250 ml. Het lekkerst koud geserveerd.",
     "horeca.eyebrow":"Voor horeca & events","horeca.title":"Zet iets <em class='accent'>nieuws</em> op de kaart.","horeca.intro":"De drinkcultuur verschuift naar bewustere, lichtere keuzes, zonder in te leveren op smaak en karakter. ambucha is de volgende stap in die verschuiving. Een openbaring voor de gast die bestelt met intentie.","horeca.cta":"ambucha bestellen",
-    "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om er mooi uit te zien, zowel in je hand als op tafel.","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Gedronken uit blik of uitgeschonken in een glas.","horeca.b7":"Een deel van de opbrengsten investeren we in de creatieve & culturele sector, <a href='ambucha-gallery.html'>bekijk onze galerie</a>.",
+    "horeca.b1":"Slanke blikjes van 250 ml, ontworpen om er mooi uit te zien, zowel in je hand als op tafel.","horeca.b2":"Glutenvrij en vegan","horeca.b3":"Rond de 70 kcal, zonder in te leveren op smaak","horeca.b5":"Houdbaar tot 18 maanden","horeca.b6":"Gedronken uit blik of uitgeschonken in een glas.","horeca.b7":"Een deel van de opbrengsten investeren we in de creatieve & culturele sector.",
     "pour.eyebrow":"","pour.title":"Vind ambucha<br><em class='upright'>bij jou in de buurt.</em>","pour.panelTitle":"Op de kaart & in het schap","pour.panelBody":"ambucha landt eerst in zaken in Amsterdam, daarna verder in het land. Wil je het in jouw stad? Vraag je favoriete plek om het te schenken, of neem direct contact met ons op.","pour.soon":"meer volgt","pour.cta":"Bestellen",
     "tasting.eyebrow":"Vraag een proeverij aan","tasting.title":"Proef het met<br>je <em class='upright plain'>team.</em>","tasting.intro":"Meld je zaak aan en we komen langs met de blikjes voor een proeverij.","tasting.name":"Je naam","tasting.namePh":"Jan de Vries","tasting.venue":"Zaak / bedrijf <span class='opt'>(optioneel)</span>","tasting.venuePh":"Café Zon, Amsterdam","tasting.email":"E-mail","tasting.emailPh":"jij@zaak.nl","tasting.msg":"Nog iets dat we moeten weten? <span class='opt'>(optioneel)</span>","tasting.msgPh":"Met hoeveel mensen, wanneer, welke smaken…","tasting.optional":"(optioneel)","tasting.submit":"Verstuur aanvraag","tasting.note":"We nemen contact op via het opgegeven e-mailadres.","tasting.success":"Bedankt voor je bericht! We proberen binnen twee werkdagen bij je terug te komen!",
     "foot.explore":"Ontdek","foot.contact":"Contact","foot.facts":"Feiten","foot.gv":"Glutenvrij · Vegan","foot.pop":"Product uit Portugal"
   };
-  const WORDS = { en:["deliciously","boldly","brightly"], nl:["heerlijk","gedurfd","helder"] };
+  const WORDS = { en:["deliciously","boldly","brightly"], nl:["heerlijk","gedurfd","fris"] };
   let lang = "en";
 
   function activeFlavorIndex(){
@@ -1411,12 +1410,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     });
   });
 
-  // initial language: saved choice, else browser preference
-  let start = "en";
+  // initial language: saved choice, else Dutch by default
+  let start = "nl";
   try{
     const saved = localStorage.getItem('ambucha-lang');
     if(saved==='nl' || saved==='en') start = saved;
-    else if((navigator.language||'').toLowerCase().startsWith('nl')) start = 'nl';
   }catch(e){}
   apply(start);
 

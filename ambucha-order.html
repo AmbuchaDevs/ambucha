@@ -111,7 +111,6 @@
           <a href="index.html#horeca" data-i18n="nav.horeca">For horeca</a>
           <a href="index.html#tasting" data-i18n="nav.tasting">Request a tasting</a>
           <a href="index.html#pour" data-i18n="nav.pour">Where we pour</a>
-          <a href="ambucha-gallery.html" data-i18n="nav.gallery">Gallery</a>
           <a href="ambucha-about.html" data-i18n="nav.about">About us</a>
         </div>
       </div>
@@ -218,11 +217,10 @@
   document.querySelectorAll('.lang-btn').forEach(function(b){
     b.addEventListener('click', function(){ apply(b.dataset.lang); });
   });
-  var start = "en";
+  var start = "nl";
   try{
     var saved = localStorage.getItem('ambucha-lang');
     if(saved==='nl' || saved==='en') start = saved;
-    else if((navigator.language||'').toLowerCase().startsWith('nl')) start = 'nl';
   }catch(e){}
   apply(start);
 })();
