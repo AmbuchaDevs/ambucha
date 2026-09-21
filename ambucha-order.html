@@ -69,7 +69,7 @@
   .sec-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.46em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
   h1{font-family:var(--serif);font-weight:340;font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-.03em}
   h1 em{font-style:italic;font-weight:420;background:linear-gradient(100deg,var(--fx-a),var(--fx-b));-webkit-background-clip:text;background-clip:text;color:transparent}
-  h1 em.plain{background:none;-webkit-text-fill-color:currentColor;color:inherit}
+  h1 em.plain{font-style:normal;background:none;-webkit-text-fill-color:currentColor;color:inherit}
   .order-lead{margin:22px 0 0;max-width:44ch;font-size:16px;line-height:1.7;color:var(--ink-soft)}
   .order-meta{display:flex;gap:22px;margin-top:26px;font-size:14px;flex-wrap:wrap}
   .order-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
@@ -126,7 +126,7 @@
   <section class="order">
     <div>
       <div class="sec-eyebrow" data-i18n="order.eyebrow">Get ambucha</div>
-      <h1 data-i18n="order.title">Order <em>ambucha.</em></h1>
+      <h1 data-i18n="order.title">Order <em class="plain">ambucha.</em></h1>
       <p class="order-lead" data-i18n="order.lead">Running a bar, shop or event, or just want a case at home? Tell us what you're after and we'll get back with pricing and delivery. Our online shop is on its way, in the meantime we handle orders personally.</p>
       <div class="order-meta">
         <a href="mailto:info@ambucha.com">info@ambucha.com</a>
@@ -139,8 +139,8 @@
         <input id="of-name" name="name" type="text" required placeholder="Jane de Vries">
       </div>
       <div class="field">
-        <label for="of-company" data-i18n="order.company">Company / venue <span class="opt">(optional)</span></label>
-        <input id="of-company" name="company" type="text" placeholder="Café Zon, Amsterdam">
+        <label for="of-company" data-i18n="order.company">Company / venue</label>
+        <input id="of-company" name="company" type="text" required placeholder="Café Zon, Amsterdam">
       </div>
       <div class="field">
         <label for="of-email" data-i18n="order.email">Email</label>
@@ -157,7 +157,7 @@
       </div>
       <div class="field">
         <label for="of-msg" data-i18n="order.msg">What would you like? <span class="opt">(quantity, flavours, timing)</span></label>
-        <textarea id="of-msg" name="msg" rows="3" placeholder="e.g. 5 cases, mixed flavours, before the end of the month" data-i18n-ph="order.msgPh"></textarea>
+        <textarea id="of-msg" name="msg" rows="3" placeholder="Tell us how many you would like, flavours, and timing" data-i18n-ph="order.msgPh"></textarea>
       </div>
       <button type="submit" class="btn solid" data-i18n="order.submit">Send order enquiry</button>
       <p class="order-note" data-i18n="order.note">We'll reply to the email you provide, usually within two working days.</p>
@@ -183,9 +183,9 @@
     "nav.flavors":"Smaken","nav.made":"Productiewijze","nav.horeca":"Voor horeca","nav.tasting":"Proeverij aanvragen","nav.pour":"Verkooppunten","nav.gallery":"Galerie","nav.about":"Over ons","nav.menu":"Menu","nav.cta":"Bestel ambucha",
     "order.eyebrow":"ambucha bestellen","order.title":"Bestel <em class='plain'>ambucha.</em>",
     "order.lead":"Heb je een bar, winkel of evenement, of wil je gewoon een krat thuis hebben? Laat ons weten wat je zoekt en we nemen contact met je op over de prijs en levering. Onze webshop is in ontwikkeling, tot die tijd verwerken we bestellingen persoonlijk.",
-    "order.name":"Je naam","order.company":"Bedrijf / zaak <span class='opt'>(optioneel)</span>","order.email":"E-mail","order.emailPh":"jij@email.nl",
+    "order.name":"Naam","order.company":"Bedrijf / zaak","order.email":"E-mail","order.emailPh":"jij@email.nl",
     "order.type":"Bestellen als","order.type1":"Zaak / horeca","order.type2":"Winkel / retailer","order.type3":"Evenement","order.type4":"Thuis",
-    "order.msg":"Wat wil je bestellen? <span class='opt'>(aantal, smaken, timing)</span>","order.msgPh":"bijv. 5 kratten, gemengde smaken, voor het einde van de maand",
+    "order.msg":"Wat wil je bestellen? <span class='opt'>(aantal, smaken, timing)</span>","order.msgPh":"Vertel ons hoeveel je wilt, welke smaken en timing",
     "order.submit":"Verstuur bestelaanvraag","order.note":"We reageren via het opgegeven e-mailadres, meestal binnen twee werkdagen.",
     "order.success":"Bedankt! Je aanvraag is verstuurd, we nemen snel contact op."
   };
